@@ -1,1 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --color-black:#060D16;
+    --color-blue: #408BFF;
+    --color-light-blue: #F0F2F6;
+    --color-dark-gray: #5E697A;
+    --color-gray: #8F9DB4;
+    --color-white: #FFFFFF;
+    --color-orange: #F26A00;
+
+    --font-manrope: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+    --text-mb-title-size: 40px;
+    --text-mb-title-weight: 700;
+    --text-mb-title-line-height: 110%;
+
+    --text-lg-title-size: 66px;
+    --text-lg-title-line-height: 100%;
+
+    --text-mb-h1-size: 36px;
+    --text-mb-h1-weight: 800;
+    --text-mb-h1-line-height: 110%;
+
+    --text-lg-h1-size: 56px;
+
+    --text-mb-h2-size: 32px;
+    --text-mb-h2-weight: 700;
+    --text-mb-h2-line-height: 130%;
+    --text-mb-h2-case: uppercase;
+
+    --text-lg-h2-size: 48px;
+
+    --text-mb-h3-size: 27px;
+    --text-mb-h3-weight: 700;
+    --text-mb-h3-line-height: 110%;
+
+    --text-lg-h3-size: 36px;
+
+    --text-mb-h4-size: 24px;
+    --text-mb-h4-weight: 700;
+    --text-mb-h4-line-height: 110%;
+
+    --text-lg-h4-size: 28px;
+
+    --text-mb-h5-size: 21px;
+    --text-mb-h5-weight: 400;
+    --text-mb-h5-line-height: 150%;
+
+    --text-lg-h5-size: 24px;
+
+    --text-mb-h6-size: 20px;
+    --text-mb-h6-weight: 500;
+    --text-mb-h6-line-height: 130%;
+
+    --text-lg-h6-size: 21px;
+
+    --text-p1-size: 19px;
+    --text-p1-weight: 500;
+    --text-p1-line-height: 140%;
+
+    --text-p1_semiBold-size: 19px;
+    --text-p1_semiBold-weight: 600;
+    --text-p1_semiBold-line-height: 130%;
+
+    --text-p1_Bold-size: 19px;
+    --text-p1_Bold-weight: 700;
+    --text-p1_Bold-line-height: 130%;
+    --text-p1_Bold-case: uppercase;
+
+    --text-p2-size: 16px;
+    --text-p2-weight: 500;
+    --text-p2-line-height: 150%;
+
+    --text-p2_semiBold-size: 16px;
+    --text-p2_semiBold-weight: 600;
+    --text-p2_semiBold-line-height: 100%;
+
+    --text-p3-size: 14px;
+    --text-p3-weight: 600;
+    --text-p3-line-height: normal;
+    --text-p3-case: uppercase;
+}
+
+@layer base {
+    html, body {
+        font-family: var(--font-manrope), sans-serif;
+        background-color: var(--color-white);
+        color: var(--color-dark-gray);
+    }
+}
+
+@utility text-title {
+   font-size: var(--text-mb-title-size) ;
+   font-weight: var(--text-mb-title-weight) ;
+   line-height: var(--text-mb-title-line-height) ;
+
+    @variant md {
+        font-size: var(--text-lg-title-size);
+        line-height: var(--text-lg-title-line-height);
+    }
+}
+
+@utility text-h1 {
+    font-size: var(--text-mb-h1-size) ;
+    font-weight: var(--text-mb-h1-weight) ;
+    line-height: var(--text-mb-h1-line-height) ;
+
+    @variant md {
+        font-size: var(--text-lg-h1-size);
+    }
+}
+
+@utility text-h2 {
+    font-size: var(--text-mb-h2-size) ;
+    font-weight: var(--text-mb-h2-weight) ;
+    line-height: var(--text-mb-h2-line-height) ;
+    text-transform: var(--text-mb-h2-case);
+
+    @variant md {
+        font-size: var(--text-lg-h2-size);
+    }
+}
+
+@utility text-h3 {
+    font-size: var(--text-mb-h3-size) ;
+    font-weight: var(--text-mb-h3-weight) ;
+    line-height: var(--text-mb-h3-line-height) ;
+
+    @variant md {
+        font-size: var(--text-lg-h3-size);
+    }
+}
+
+
+@utility text-h4 {
+    font-size: var(--text-mb-h4-size) ;
+    font-weight: var(--text-mb-h4-weight) ;
+    line-height: var(--text-mb-h4-line-height) ;
+
+    @variant md {
+        font-size: var(--text-lg-h4-size);
+    }
+}
+
+@utility text-h5 {
+    font-size: var(--text-mb-h5-size) ;
+    font-weight: var(--text-mb-h5-weight) ;
+    line-height: var(--text-mb-h5-line-height) ;
+
+    @variant md {
+        font-size: var(--text-lg-h5-size);
+    }
+}
+
+@utility text-h6 {
+    font-size: var(--text-mb-h6-size) ;
+    font-weight: var(--text-mb-h6-weight) ;
+    line-height: var(--text-mb-h6-line-height) ;
+
+    @variant md {
+        font-size: var(--text-lg-h6-size);
+    }
+}
+
+@utility text-p1 {
+    font-size: var(--text-p1-size) ;
+    font-weight: var(--text-p1-weight) ;
+    line-height: var(--text-p1-line-height) ;
+}
+
+@utility text-p1-semiBold {
+    font-size: var(--text-p1_semiBold-size) ;
+    font-weight: var(--text-p1_semiBold-weight) ;
+    line-height: var(--text-p1_semiBold-line-height) ;
+}
+
+@utility text-p1-Bold {
+    font-size: var(--text-p1_Bold-size) ;
+    font-weight: var(--text-p1_Bold-weight) ;
+    line-height: var(--text-p1_Bold-line-height) ;
+    text-transform: var(--text-p1_Bold-case);
+}
+
+@utility text-p2 {
+    font-size: var(--text-p2-size) ;
+    font-weight: var(--text-p2-weight) ;
+    line-height: var(--text-p2-line-height) ;
+}
+
+@utility text-p2-semiBold {
+    font-size: var(--text-p2_semiBold-size) ;
+    font-weight: var(--text-p2_semiBold-weight) ;
+    line-height: var(--text-p2_semiBold-line-height) ;
+}
+
+@utility text-p3 {
+    font-size: var(--text-p3-size) ;
+    font-weight: var(--text-p3-weight) ;
+    line-height: var(--text-p3-line-height) ;
+    text-transform: var(--text-p3-case);
+}
