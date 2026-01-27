@@ -2,11 +2,17 @@ import DatesIcon from "@/assets/icons/DatesIcon.svg"
 import DoorsOpenIcon from "@/assets/icons/DoorsOpenIcon.svg"
 import LocationIcon from "@/assets/icons/LocationIcon.svg"
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
+import MapboxMap from "./MapboxMap"
 
 export const events = [
     {
         id: "kc-2025",
         title: "K//C 2025: The Founders’ Summit",
+        coordinates: {
+            latitude: 46.89204,
+            longitude: -67.39830,
+        },
+        mapLabel: "Family Worship Center Plaster Rock",
         description:
             "This modern, welcoming facility offers a thoughtfully curated environment for conversation, worship, and connection — designed to inspire and equip from the moment you arrive.",
         info: [
@@ -41,10 +47,14 @@ export const events = [
             },
         ],
     },
-
     {
         id: "build-boldly",
         title: "Build Boldly: Vision, Value & the Venture",
+        coordinates: {
+            latitude: 43.64496365422798,
+            longitude: -79.38346681715244,
+        },
+        mapLabel: "1141 Front St W",
         description:
             "A one-day intensive for visionaries who want to build with purpose. The Spring Forum blends strategy, faith, and connection in an intimate setting designed for real growth.",
         info: [
@@ -82,7 +92,7 @@ export const events = [
 
 const LocationCard = () => {
     return (
-        <div className="flex flex-col md:flex-row items-stretch gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
             {events.map((event) => {
                 const topInfo = event.info.filter(
                     (item) => item.id === "dates" || item.id === "doors"
@@ -95,64 +105,82 @@ const LocationCard = () => {
                 return (
                     <div
                         key={event.id}
-                        className="w-full md:w-1/2  mt-14 bg-[var(--color-light-blue)] rounded-xl py-8 px-2
-                                   flex flex-col border border-transparent hover:border-[var(--color-orange)]
-                                   active:border-[var(--color-orange)]"
+                        className="w-full h-full flex flex-col group"
                     >
-                        <h3 className="text-h3 text-[var(--color-black)] mb-4">{event.title}</h3>
+                        <div
+                            className="flex flex-col flex-1 bg-[var(--color-light-blue)] rounded-xl py-8 px-4
+                                       border border-transparent group-hover:border-[var(--color-orange)]"
+                        >
+                            <h3 className="text-h3 text-[var(--color-black)] mb-4">{event.title}</h3>
 
-                        <p className="text-p1 mb-6">{event.description}</p>
+                            <p className="text-p1 mb-8">{event.description}</p>
 
-                        <div className="md:hidden h-px w-full bg-[var(--color-gray)] mb-6" />
+                            <div className="md:hidden h-px w-full bg-[var(--color-gray)] mb-6" />
 
-                        <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8 mb-6">
-                            {topInfo.map((item) => (
-                                <div key={item.id}>
-                                    <div className="flex gap-3 items-center mb-2">
-                                        <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
-                                            <img
-                                                src={item.icon} alt={item.title} className="h-4 w-4"
-                                            />
+                            <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8 mb-6">
+                                {topInfo.map((item) => (
+                                    <div key={item.id}>
+                                        <div className="flex gap-3 items-center mb-2">
+                                            <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
+                                                <img src={item.icon} alt={item.title} className="h-4 w-4" />
+                                            </div>
+                                            <span className="text-p1 text-[var(--color-black)]">{item.title}</span>
                                         </div>
-                                        <span className="text-p1 text-[var(--color-black)]">{item.title}</span>
-                                    </div>
 
-                                    {item.lines.map((line, index) => (
-                                        <p key={index} className="text-p1">{line.text}</p>
-                                    ))}
-                                </div>
-                            ))}
-                        </div>
-                        <div className=" h-px w-full bg-[var(--color-gray)] mb-6" />
-                        {locationInfo && (
-                            <div className="mb-6">
-                                <div className="flex gap-3 items-center mb-2">
-                                    <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
-                                        <img
-                                            src={locationInfo.icon} alt={locationInfo.title} className="h-4 w-4"
-                                        />
+                                        {item.lines.map((line, index) => (
+                                            <p key={index} className="text-p1">{line.text}</p>
+                                        ))}
                                     </div>
-                                    <span className="text-p1 text-[var(--color-black)]">{locationInfo.title}</span>
-                                </div>
-
-                                {locationInfo.lines.map((line, index) => (
-                                    <p
-                                        key={index}
-                                        className={`text-p1 ${
-                                            line.gapAfter ? "mb-1" : ""
-                                        }`}
-                                    >{line.text}</p>
                                 ))}
                             </div>
-                        )}
-                        <a
-                            href="#payment"
-                            className="mt-auto flex justify-center items-center gap-2 py-3 px-5
-                         bg-[var(--color-blue)] rounded-[10px] text-p2 text-white"
+
+                            <div className="h-px w-full bg-[var(--color-gray)] mb-6" />
+
+                            {locationInfo && (
+                                <div className="mb-6">
+                                    <div className="flex gap-3 items-center mb-2">
+                                        <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
+                                            <img src={locationInfo.icon} alt={locationInfo.title} className="h-4 w-4"/>
+                                        </div>
+                                        <span className="text-p1 text-[var(--color-black)]">{locationInfo.title}</span>
+                                    </div>
+
+                                    {locationInfo.lines.map((line, index) => (
+                                        <p
+                                            key={index}
+                                            className={`text-p1 ${line.gapAfter ? "mb-1" : ""}`}
+                                        >{line.text}
+                                        </p>
+                                    ))}
+                                </div>
+                            )}
+                            <a
+                                href="#payment"
+                                className="mt-auto flex justify-center items-center gap-2 py-3 px-5 bg-[var(--color-blue)]
+                                           rounded-[10px] text-p2 text-white"
+                            >
+                                Register Now
+                                <img src={ButtonIcon} alt="icon" />
+                            </a>
+                        </div>
+
+                        <div
+                            className="w-full h-[300px] rounded-xl overflow-hidden border border-transparent
+                                       group-hover:border-[var(--color-orange)] transition-colors"
+                            onClick={() =>
+                                window.open(
+                                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                                        `${event.mapLabel}`
+                                    )}`,
+                                    "_blank"
+                                )
+                            }
                         >
-                            Register Now
-                            <img src={ButtonIcon} alt="icon"  />
-                        </a>
+                            <MapboxMap
+                                latitude={event.coordinates.latitude}
+                                longitude={event.coordinates.longitude}
+                            />
+                        </div>
                     </div>
                 )
             })}
