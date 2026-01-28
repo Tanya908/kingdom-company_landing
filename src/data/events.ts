@@ -131,12 +131,6 @@ export const agendaData: AgendaData[] = [
                             "Leading with excellence: how to scale while staying rooted in purpose.",
                     },
                     {
-                        time: "1:00 PM – 2:30 PM",
-                        title: "Session 6 – Panel Discussion: Stories of Kingdom Business",
-                        description:
-                            "Real leaders share the wins, battles, and breakthroughs of building faith-led companies.",
-                    },
-                    {
                         time: "10:30 AM – 12:00 PM",
                         title: "Session 5 – Speaker 2",
                         description:
