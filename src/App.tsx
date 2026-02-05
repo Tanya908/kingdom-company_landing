@@ -3,6 +3,7 @@ import Hero from "./components/pages/Hero.tsx";
 import About from "./components/pages/About.tsx";
 import Location from "./components/pages/Location.tsx";
 import Agenda from "./components/pages/Agenda.tsx";
+import OurSpeakers from "./components/pages/OurSpeakers.tsx";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
                 <About/>
                 <Location/>
                 <Agenda/>
+                <OurSpeakers/>
             </>
     )
 }
