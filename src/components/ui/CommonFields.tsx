@@ -15,7 +15,7 @@ const CommonFields = ({ register }: CommonFieldsProps) => {
                     type="text"
                     autoComplete="name"
                     placeholder="Enter your first and last name."
-                    className="bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl outline-none focus:outline-none focus:ring-0"
+                    className="form-input"
                     {...register("fullName", { required: "Full name is required" })}
                 />
             </div>
@@ -27,7 +27,7 @@ const CommonFields = ({ register }: CommonFieldsProps) => {
                     type="email"
                     autoComplete="email"
                     placeholder="Used for confirmation and updates."
-                    className="bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl outline-none focus:outline-none focus:ring-0"
+                    className="form-input"
                     {...register("email", { required: "Email is required" })}
                 />
             </div>
@@ -39,7 +39,7 @@ const CommonFields = ({ register }: CommonFieldsProps) => {
                     type="tel"
                     autoComplete="tel"
                     placeholder="Enter your 10-digit Canadian phone number."
-                    className=" w-full bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl outline-none focus:outline-none focus:ring-0"
+                    className="form-input"
                     {...register("phone", { required: "Phone number is required" })}
                 />
             </div>
