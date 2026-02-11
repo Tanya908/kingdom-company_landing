@@ -13,7 +13,7 @@ export const agendaData: AgendaData[] = [
                 sessions: [
                     {
                         time: "11:00 AM – 12:00 PM",
-                        title: "Registration & Networking",
+                        title: "Payments & Networking",
                         description:
                             "Check in, grab a coffee, and connect with other attendees before the day begins.",
                     },
