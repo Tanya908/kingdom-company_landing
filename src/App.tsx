@@ -7,6 +7,7 @@ import OurSpeakers from "./components/pages/OurSpeakers.tsx";
 import Payment from "./components/pages/Payment.tsx";
 import LetsConnect from "./components/pages/LetsConnect.tsx";
 import Faq from "./components/pages/Faq.tsx";
+import ForPartners from "./components/pages/ForPartners.tsx";
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                 <Payment/>
                 <LetsConnect/>
                 <Faq/>
+                <ForPartners/>
             </>
     )
 }
