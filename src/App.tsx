@@ -8,6 +8,7 @@ import Payment from "./components/pages/Payment.tsx";
 import LetsConnect from "./components/pages/LetsConnect.tsx";
 import Faq from "./components/pages/Faq.tsx";
 import ForPartners from "./components/pages/ForPartners.tsx";
+import Footer from "./components/layouts/Footer.tsx";
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
                 <LetsConnect/>
                 <Faq/>
                 <ForPartners/>
+                <Footer/>
             </>
     )
 }
