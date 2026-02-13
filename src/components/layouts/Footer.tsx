@@ -92,11 +92,11 @@ const Footer = () => {
                     © 2025 Kingdom & Company. All rights reserved.
                 </p>
 
-                <a href="#privacy" className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
+                <a href="/privacy-policy.html" className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
                     Privacy Policy
                 </a>
 
-                <a href="#terms" className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
+                <a href="/terms-of-service.html" className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
                     Terms of Service
                 </a>
             </div>
