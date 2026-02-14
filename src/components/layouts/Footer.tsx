@@ -3,23 +3,15 @@ import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import YouTube from "@/assets/icons/YouTube.svg"
 import Instagram from "@/assets/icons/Instagram.svg"
 import Facebook from "@/assets/icons/Facebook.svg"
+import {navLinks} from "../../data/navigation.ts";
 
-type NavLink = { id: number; title: string; url: `#${string}` }
 type SocialIcon = {link: string; img: string; alt: string;}
-
-const navLinks: NavLink[] = [
-    { id: 1, title: "About us", url: "#about" },
-    { id: 2, title: "Rates", url: "#payment" },
-    { id: 3, title: "Our speakers", url: "#speakers" },
-    { id: 4, title: "FAQ", url: "#faq" },
-]
 
 const socialIcons: SocialIcon[] = [
     {link: "https://www.youtube.com/", img:YouTube, alt: "YouTube" },
     {link: "https://www.facebook.com/", img:Facebook, alt: "Facebook" },
     {link: "https://www.instagram.com/", img:Instagram, alt: "Instagram" },
 ]
-
 
 const Footer = () => {
     return (

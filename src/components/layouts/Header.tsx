@@ -2,15 +2,7 @@ import MainLogo from "@/assets/MainLogo.svg"
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import { useState } from "react"
 import BurgerButton from "../ui/BurgerButton.tsx"
-
-type NavLink = { id: number; title: string; url: `#${string}` }
-
-const navLinks: NavLink[] = [
-    { id: 1, title: "About us", url: "#about" },
-    { id: 2, title: "Rates", url: "#payment" },
-    { id: 3, title: "Our speakers", url: "#speakers" },
-    { id: 4, title: "FAQ", url: "#faq" },
-]
+import {navLinks} from "../../data/navigation.ts";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
