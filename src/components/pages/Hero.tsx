@@ -1,18 +1,18 @@
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
-import HeroImg from "@/assets/Hero.png"
+import HeroImg from "@/assets/Hero.jpg"
 import ScrollDown from "@/assets/icons/ScrollDown.svg"
 
 
 const Hero = () => {
     return (
-        <section id="hero" className="pt-32 md:pt-44 px-3 md:px-6 bg-[var(--color-light-blue)]">
-            <div className="w-full border-y border-[var(--color-dark-gray)] mb-6 md:border-0">
-                <p className="text-center text-p3 py-2 md:w-max md:px-8 md:py-2 md:border-y md:border-[var(--color-dark-gray)] md:mx-auto">
+        <section id="hero" className="section-x pt-32 md:pt-40 bg-[var(--color-light-blue)]">
+            <div className="w-full border-y mb-6 md:border-0">
+                <p className="text-center text-p3 py-2 md:w-max md:px-8 md:py-2 md:border-y md:mx-auto">
                     Where Faith Meets Strategy
                 </p>
             </div>
 
-            <h1 className="text-title text-[var(--color-black)] mb-6 w-full md:text-center md:mx-auto lg:w-3/4 ">Lead with Vision. Scale with Integrity.</h1>
+            <h1 className="text-title text-[var(--color-black)] mb-6 w-full md:text-center md:mx-auto lg:w-3/4">Lead with Vision. Scale with Integrity.</h1>
             <p className="text-h5 mb-10 md:text-center md:mx-auto lg:w-4/5">Experience for entrepreneurs and leaders who want to build with excellence, lead with integrity, and align their business with something greater.</p>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
@@ -33,13 +33,13 @@ const Hero = () => {
                 </a>
             </div>
 
-            <div className="mt-12 -mx-3 md:-mx-6 relative">
+            <div className="mt-12 -mx-3 md:-mx-10 lg:-mx-20 relative">
                 <img
                     src={HeroImg} alt="Event audience and speaker"
                     className="w-full aspect-square md:aspect-auto object-cover block"
                 />
 
-                <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(0deg,rgba(28,32,25,0.80)_0%,rgba(28,32,25,0.00)_100%)]" />
+                <div className="gradient" />
 
                 <div className="absolute bottom-4 left-6 right-6 flex flex-col md:flex-row md:justify-between ">
                     <p className="text-[var(--color-white)] text-p1 mb-4"> Where Faith Meets Strategy</p>

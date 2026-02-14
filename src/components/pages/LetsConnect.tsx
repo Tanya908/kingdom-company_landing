@@ -38,7 +38,7 @@ const LetsConnect = () => {
     }, [hasBusiness, setValue]);
 
     return (
-        <section id="connect" className="mt-20 bg-[var(--color-light-blue)] py-16 px-3 md:px-10 lg:px-16">
+        <section id="connect" className="bg-[var(--color-light-blue)] section-y section-x">
             <h2 className="text-h1 text-[var(--color-black)] mb-14 text-center">Let’s Connect</h2>
 
             <div>
@@ -47,11 +47,13 @@ const LetsConnect = () => {
                         type="button"
                         onClick={() => setActiveTab("new")}
                         className={`form-choice rounded-t-2xl md:rounded-t-none md:rounded-tl-2xl 
-                                    ${activeTab === "new" ? "bg-[var(--color-white)]" : "bg-[var(--color-light-blue)]"}
+                                    ${activeTab === "new" ? "bg-[var(--color-white)]" 
+                                                          : "bg-[var(--color-light-blue)]"}
                                   `}
                     >
                         <div
-                            className={`blue-circle ${activeTab === "new" ? "bg-[var(--color-blue)] border-[var(--color-blue)]" : "border-[var(--color-dark-gray)] bg-transparent"}`}
+                            className={`blue-circle ${activeTab === "new" ? "bg-[var(--color-blue)] border-[var(--color-blue)]" 
+                                                                          : "border-[var(--color-dark-gray)] bg-transparent"}`}
                         />
                         <h4 className="text-h4 text-[var(--color-black)]">I am a new member</h4>
                     </button>
@@ -60,13 +62,13 @@ const LetsConnect = () => {
                         type="button"
                         onClick={() => setActiveTab("existing")}
                         className={`form-choice rounded-none md:rounded-tr-2xl 
-                                    ${activeTab === "existing" ? "bg-[var(--color-white)]" : "bg-[var(--color-light-blue)]"}
-                                  `}
+                                    ${activeTab === "existing" ? "bg-[var(--color-white)]" 
+                                                               : "bg-[var(--color-light-blue)]"}`}
                     >
                         <div
                             className={`blue-circle shrink-0
-                                        ${activeTab === "existing" ? "bg-[var(--color-blue)] border-[var(--color-blue)]": "border-[var(--color-dark-gray)] bg-transparent"}             
-                                      `}
+                                        ${activeTab === "existing" ? "bg-[var(--color-blue)] border-[var(--color-blue)]"
+                                                                   : "border-[var(--color-dark-gray)] bg-transparent"}`}
                         />
                         <h4 className="text-h4 text-[var(--color-black)]">Already part of the K&C community?</h4>
                     </button>
@@ -77,8 +79,8 @@ const LetsConnect = () => {
                         <CommonFields register={register}/>
 
                         {/*PASTOR'S NAME*/}
-                        <div className="flex flex-col gap-2 mb-6">
-                            <label htmlFor="pastorName" className="input-text">
+                        <div className="form-field">
+                            <label htmlFor="pastorName" className="form-label">
                                 Pastor's Name (not mandatory)
                             </label>
                             <input
@@ -93,7 +95,7 @@ const LetsConnect = () => {
                         {/*BUSINESS*/}
                         {activeTab === "new" && (
                             <div className="mt-6 mb-8">
-                                <p className="input-text mb-6">
+                                <p className="form-label mb-6">
                                     Do you currently own a business or are you planning a startup?
                                 </p>
 
@@ -105,7 +107,7 @@ const LetsConnect = () => {
                                             value="yes"
                                             className="form-radio"
                                         />
-                                        <span className="input-text">Yes</span>
+                                        <span className="form-label">Yes</span>
                                     </label>
 
                                     <label className="radio-position">
@@ -115,22 +117,22 @@ const LetsConnect = () => {
                                             value="no"
                                             className="form-radio"
                                         />
-                                        <span className="input-text">No</span>
+                                        <span className="form-label">No</span>
                                     </label>
 
                                     {hasBusiness === "yes" && (
                                         <div className="transition-all duration-500 ease-in-out">
-                                            <label htmlFor="businessSize" className="input-text block py-6">How would you describe your business size?</label>
+                                            <label htmlFor="businessSize" className="form-label block py-6">How would you describe your business size?</label>
                                             <div>
                                                 {businessSizes.map((size) => (
-                                                    <label key={size.id} className="flex gap-6 items-start mb-4 ">
+                                                    <label key={size.id} className="flex gap-6 items-start mb-4">
                                                         <input
                                                             type="radio"
                                                             {...register("businessSize", { valueAsNumber: true })}
                                                             value={size.id}
                                                             className="mt-1 min-w-6 min-h-6 form-radio"
                                                         />
-                                                        <span className="input-text">{size.text}</span>
+                                                        <span className="form-label">{size.text}</span>
                                                     </label>
                                                 ))}
                                             </div>
@@ -149,8 +151,7 @@ const LetsConnect = () => {
                                     className="peer sr-only"
                                 />
                                 <div
-                                    className="w-6 h-6 border border-[var(--color-black)] rounded flex items-center justify-center
-                                               [&>img]:opacity-0 peer-checked:[&>img]:opacity-100 aspect-square"
+                                    className="w-6 h-6 form-checkbox"
                                 >
                                     <img src={AcceptIcon} alt="" aria-hidden/>
                                 </div>

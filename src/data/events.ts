@@ -109,7 +109,7 @@ export const agendaData: AgendaData[] = [
                         time: "7:00 PM – 8:30 PM",
                         title: "Live Kingdom Speak",
                         description:
-                            "An evening of open conversation, testimonies, and real talk — hosted in a podcast-style, live format.",
+                            "An evening of open conversation, testimonies, and real talk in a live format.",
                     },
                 ],
             },

@@ -13,40 +13,40 @@ const PaymentCard = ({ name,popularity = false }: RegistrationProps) => {
 
             <div
                 className={`relative h-full flex flex-col px-4 py-8 rounded-xl bg-[var(--color-light-blue)]
-                            border transition-colors duration-200
-                            ${popularity ? "group border-[var(--color-orange)] hover:border-[var(--color-black)] active:border-[var(--color-black)]"
-                                         : "border-transparent hover:border-[var(--color-orange)] active:border-[var(--color-orange)]"
+                            border transition-colors duration-200 cursor-pointer
+                            ${popularity ? "group card-dark-hover"
+                                         : "card-hover"
                             }         
                 `}
             >
 
                 {popularity && (
-                    <div className="absolute top-0 -left-px -right-px z-30 bg-[var(--color-orange)] group-hover:bg-[var(--color-black)] group-active:bg-[var(--color-black)]
-                                    text-p3 text-[var(--color-white)] text-center py-2 rounded-t-xl pointer-events-none -translate-y-6"
+                    <div className="absolute top-0 -left-px -right-px z-30 bg-[var(--color-orange)] popularity-hover pointer-events-none
+                                    text-p3 text-[var(--color-white)] text-center py-2 rounded-t-xl -translate-y-6"
                     >
                         most popular
                     </div>
                 )}
 
-                <div className={`flex flex-col items-center justify-center`} >
-                    <h3 className="text-h3 text-center uppercase text-[var(--color-black)]">
+                <div className="flex flex-col items-center justify-center">
+                    <h3 className="text-h3 text-center uppercase text-[var(--color-black)] max-w-xs">
                         {registration.name}
                     </h3>
-                    <h3 className="text-h3 mb-4">{registration.price}</h3>
-                    <p className="text-p2 text-left">{registration.description}</p>
+                    <h3 className="text-h3 mb-4 mt-2">{registration.price}</h3>
+                    <p className="text-p2 mr-auto max-w-xs lg:min-h-12">{registration.description}</p>
                     <a
                         href="#"
                         className="flex w-full justify-center items-center gap-2 py-3 px-5 border border-[var(--color-blue)]
-                                   rounded-[10px] text-p2 text-[var(--color-blue)] my-6"
+                                   rounded-[10px] text-p2 text-[var(--color-blue)] my-8"
                     >
                         Buy Now <span><img src={ButtonIcon} alt="icon"/></span>
                     </a>
                 </div>
 
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2 min-h-40 overflow-hidden">
                     {registration.itemsList.map((item, index) => (
                         <li key={`${registration.name}-${index}`} className="flex items-start gap-3">
-                            <span className="mt-2 h-2 w-2 rounded-full bg-orange-500 shrink-0"/>
+                            <span className="mt-2 h-2 w-2 rounded-full bg-orange-500 popularity-hover shrink-0"/>
                             <p className="text-p2 text-[var(--color-dark-gray)]">{item}</p>
                         </li>
                     ))}
@@ -57,7 +57,6 @@ const PaymentCard = ({ name,popularity = false }: RegistrationProps) => {
                 <p className="text-p2-semiBold mb-2 text-[var(--color-black)]">Best for</p>
                 <p className="text-p2">{registration.details}</p>
             </div>
-
     )
 }
 export default PaymentCard

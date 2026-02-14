@@ -30,17 +30,17 @@ export default function MapboxMap({
             >
                 <Marker longitude={longitude} latitude={latitude} anchor="bottom">
                     <div className="relative inline-flex flex-col items-center">
-                        <img src={MapMarker} alt=""/>
+                        <img src={MapMarker} alt="map marker"/>
                     </div>
 
                 </Marker>
 
                 <Marker longitude={-75.74} latitude={45.4} anchor="center">
-                    <div className="w-4 h-4 rounded-full bg-[var(--color-orange)] border-2 border-[var(--color-white)]" />
+                    <div className="map-marker" />
                 </Marker>
 
                 <Marker longitude={-75.72} latitude={45.44} anchor="center">
-                    <div className="w-4 h-4 rounded-full bg-[var(--color-orange)] border-2 border-[var(--color-white)]" />
+                    <div className="map-marker" />
                 </Marker>
             </Map>
         </div>

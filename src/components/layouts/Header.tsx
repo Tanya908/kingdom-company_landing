@@ -7,7 +7,7 @@ type NavLink = { id: number; title: string; url: `#${string}` }
 
 const navLinks: NavLink[] = [
     { id: 1, title: "About us", url: "#about" },
-    { id: 2, title: "Rates", url: "#rates" },
+    { id: 2, title: "Rates", url: "#payment" },
     { id: 3, title: "Our speakers", url: "#speakers" },
     { id: 4, title: "FAQ", url: "#faq" },
 ]
@@ -17,15 +17,18 @@ const Header = () => {
 
     return (
         <header className="flex flex-col bg-[var(--color-light-blue)]">
+            {isOpen && (
+                <div className="fixed inset-0 bg-[var(--color-light-blue)] h-[40%] z-40 lg:hidden" />
+            )}
             <div className="fixed top-0 left-0 right-0 z-50 mt-8 mx-2 md:mx-20 flex justify-between items-center
                             py-3 px-2 border border-[var(--color-gray)] rounded-lg bg-[var(--color-white)]"
             >
                 <a href="#hero" className="w-28 md:w-40"><img src={MainLogo} alt="Kingdom & Company" /></a>
 
-                <ul className="hidden lg:flex gap-6 items-center justify-center ">
+                <ul className="hidden lg:flex gap-6 items-center justify-center">
                     {navLinks.map((item) => (
                         <li key={item.id}>
-                            <a className="text-p1-semiBold hover:text-[var(--color-blue)] active:text-[var(--color-blue)]" href={item.url}>{item.title}</a>
+                            <a className="text-p1-semiBold link-hover" href={item.url}>{item.title}</a>
                         </li>
                     ))}
                 </ul>
@@ -49,11 +52,12 @@ const Header = () => {
 
             {isOpen && (
                 <div className="fixed inset-0 h-screen z-40 lg:hidden bg-[var(--color-light-blue)] pt-24 md:pt-0 px-2
-                 md:fixed md:inset-auto md:top-[120px] md:left-0 md:right-0 md:h-auto">
+                                md:fixed md:inset-auto md:top-[120px] md:left-0 md:right-0 md:h-auto"
+                >
                     <ul className="my-14 flex flex-col gap-6 items-center justify-center">
                         {navLinks.map((item) => (
                             <li key={item.id}>
-                                <a className="text-p1-semiBold hover:text-[var(--color-blue)] active:text-[var(--color-blue)]" href={item.url} onClick={() => setIsOpen(false)}>
+                                <a className="text-p1-semiBold link-hover" href={item.url} onClick={() => setIsOpen(false)}>
                                     {item.title}
                                 </a>
                             </li>

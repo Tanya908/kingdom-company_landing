@@ -21,7 +21,7 @@ export const Faqs: Faq[] =[
 const Faq = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
     return (
-        <section id="faq" className="px-2 md:px-10 lg:px-16 my-20 grid grid-cols-1 gap-14
+        <section id="faq" className="section-x section-y grid grid-cols-1 gap-14
                                      md:grid-cols-[250px_auto] lg:grid-cols-[350px_auto]"
         >
             <div className="w-full">
@@ -61,7 +61,7 @@ const Faq = () => {
                                         setOpenIndex(isOpen ? null : index);
                                     }}
                                     aria-expanded={isOpen}
-                                    className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-blue)]"
+                                    className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-blue)] cursor-pointer"
                                 >
                                     <img
                                         src={isOpen ? Close : Open}
@@ -73,7 +73,7 @@ const Faq = () => {
                             </div>
 
                             {isOpen && (
-                                <p className="mt-4">
+                                <p className="text-p1 mt-4 max-w-2xl text-justify">
                                     {faq.description}
                                 </p>
                             )}

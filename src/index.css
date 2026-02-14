@@ -202,16 +202,56 @@
     text-transform: var(--text-p3-case);
 }
 
+/*SECTION PADDING*/
+@utility section-x {
+    @apply px-3 md:px-10 lg:px-20;
+}
+
+@utility section-y {
+    @apply py-12 md:py-14 lg:py-20;
+}
+
+/* LINEAR GRADIENT */
+@utility gradient {
+    @apply absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(0deg,rgba(28,32,25,0.80)_0%,rgba(28,32,25,0.00)_100%)]
+}
+
+/* HOVERS */
+@utility link-hover {
+    @apply hover:text-[var(--color-blue)] active:text-[var(--color-blue)] focus-visible:text-[var(--color-blue)] transition-colors duration-200
+}
+
+/* LOCATION CARD (PAYMENT CARD) */
+@utility card-hover {
+    @apply border border-transparent hover:border-[var(--color-orange)] active:border-[var(--color-orange)]
+         focus-within:border-[var(--color-orange)] group-hover:border-[var(--color-orange)] group-active:border-[var(--color-orange)]
+         group-focus-within:border-[var(--color-orange)] transition-colors duration-200;
+}
+
+@utility card-dark-hover {
+    @apply border-[var(--color-orange)] hover:border-[var(--color-black)] active:border-[var(--color-black)] transition-colors duration-200
+}
+
+@utility popularity-hover {
+    @apply group-hover:bg-[var(--color-black)] group-active:bg-[var(--color-black)]
+           group-focus-within:bg-[var(--color-black)] transition-colors duration-200;
+}
+
+/* MAPBOX */
+@utility map-marker {
+    @apply w-4 h-4 rounded-full bg-[var(--color-orange)] border-2 border-[var(--color-white)] shrink-0
+}
+
 /* FORM */
 @utility form-input {
-    @apply bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl outline-none focus:outline-none focus:ring-0
+    @apply bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl focus:outline-none focus:ring-0;
 }
 
 @utility form-radio {
     @apply w-6 h-6 accent-[var(--color-dark-gray)] cursor-pointer
 }
 
-@utility input-text {
+@utility form-label {
     @apply text-p1 text-[var(--color-black)]
 }
 
@@ -225,4 +265,12 @@
 
 @utility radio-position {
     @apply flex gap-4 items-center
+}
+
+@utility form-field {
+    @apply flex flex-col gap-2 mb-6
+}
+
+@utility form-checkbox {
+    @apply border border-[var(--color-black)] rounded flex items-center justify-center [&>img]:opacity-0 peer-checked:[&>img]:opacity-100 aspect-square
 }

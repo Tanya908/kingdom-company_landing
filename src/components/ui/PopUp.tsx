@@ -20,13 +20,13 @@ const PopUp = ({ onClose }: PopUpProps) => {
         <section
             role="dialog"
             aria-modal="true"
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 lg:p-16"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10"
         >
 
             <div className="absolute inset-0 bg-[var(--color-black)]/50 backdrop-blur-sm" onClick={onClose}/>
 
-            <div className="relative max-w-[400px] md:max-w-[900px] h-[80vh] md:h-full overflow-y-auto rounded-2xl
-                            md:overflow-y-hidden bg-[var(--color-white)] mx-auto px-2 md:px-10 lg:px-16 py-8"
+            <div className="relative max-w-[400px] md:max-w-[900px] lg:max-w-[700px] overflow-y-auto rounded-2xl
+                            bg-[var(--color-white)] mx-auto px-2 md:px-10 py-6"
             >
 
             <div className="flex">
@@ -45,8 +45,8 @@ const PopUp = ({ onClose }: PopUpProps) => {
 
             <form className="mt-10">
                 {/*FULL NAME*/}
-                <div className="flex flex-col gap-2 mb-6">
-                    <label htmlFor="fullName" className="text-p1 text-[var(--color-black)]">Full Name</label>
+                <div className="form-field">
+                    <label htmlFor="fullName" className="form-label">Full Name</label>
                     <input
                         id="fullName"
                         type="text"
@@ -58,8 +58,8 @@ const PopUp = ({ onClose }: PopUpProps) => {
                 </div>
 
                 {/*EMAIL ADDRESS*/}
-                <div className="flex flex-col gap-2 mb-6">
-                    <label htmlFor="email" className="text-p1 text-[var(--color-black)]">Email Address</label>
+                <div className="form-field">
+                    <label htmlFor="email" className="form-label">Email Address</label>
                     <input
                         id="email"
                         type="email"
@@ -71,8 +71,8 @@ const PopUp = ({ onClose }: PopUpProps) => {
                 </div>
 
                 {/*PHONE NUMBER*/}
-                <div className="flex flex-col gap-2 mb-6">
-                    <label htmlFor="phone" className="text-p1 text-[var(--color-black)]">Phone Number (optional)</label>
+                <div className="form-field">
+                    <label htmlFor="phone" className="form-label">Phone Number (optional)</label>
                     <input
                         id="phone"
                         type="tel"
@@ -83,8 +83,8 @@ const PopUp = ({ onClose }: PopUpProps) => {
                 </div>
 
                 {/*WEBSITE OR SOCIAL MEDIA*/}
-                <div className="flex flex-col gap-2 mb-6">
-                    <label htmlFor="choice" className="text-p1 text-[var(--color-black)]">Website or Social Media (optional)</label>
+                <div className="form-field">
+                    <label htmlFor="choice" className="form-label">Website or Social Media (optional)</label>
                     <input
                         id="choice"
                         type="text"
@@ -102,8 +102,7 @@ const PopUp = ({ onClose }: PopUpProps) => {
                             required
                         />
                         <div
-                            className="w-4 h-4 border border-[var(--color-black)] rounded flex items-center justify-center
-                                               [&>img]:opacity-0 peer-checked:[&>img]:opacity-100 aspect-square"
+                            className="w-4 h-4 form-checkbox"
                         >
                             <img src={AcceptIcon} alt="" className="w-3 h-3" aria-hidden/>
                         </div>

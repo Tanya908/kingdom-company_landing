@@ -9,7 +9,7 @@ type SocialIcon = {link: string; img: string; alt: string;}
 
 const navLinks: NavLink[] = [
     { id: 1, title: "About us", url: "#about" },
-    { id: 2, title: "Rates", url: "#rates" },
+    { id: 2, title: "Rates", url: "#payment" },
     { id: 3, title: "Our speakers", url: "#speakers" },
     { id: 4, title: "FAQ", url: "#faq" },
 ]
@@ -23,14 +23,14 @@ const socialIcons: SocialIcon[] = [
 
 const Footer = () => {
     return (
-        <footer className="bg-[var(--color-black)] py-16 rounded-t-3xl px-4 md:px-10 lg:px-16 ">
+        <footer className="bg-[var(--color-black)] rounded-t-3xl section-y section-x">
             <a href="#hero" >
                 <img className="mb-14 mx-auto w-36 cursor-pointer" src={MainLogoBlack} alt="Kingdom & Company" />
             </a>
 
             <div className="px-3">
                 <div className="py-8 border-y flex flex-col items-center justify-center">
-                    <h4 className="text-h4 text-[var(--color-white)] text-center mb-8">
+                    <h4 className="text-h4 text-[var(--color-white)] text-center mb-8 max-w-3xl">
                         For general inquiries, registration questions, or partnership opportunities, reach out anytime:
                     </h4>
                     <a
@@ -44,7 +44,7 @@ const Footer = () => {
                     <a
                         href="mailto:hello@kingdomcompany.ca"
                         className="w-full md:w-80 flex justify-center items-center gap-2 py-3 px-5 border
-                                   border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)] "
+                                   border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)]"
                     >
                         hello@kingdomcompany.ca <span><img src={ButtonIcon} alt="icon"/></span>
                     </a>
@@ -62,8 +62,8 @@ const Footer = () => {
                                 href={social.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-center w-10 h-10 rounded-md border transition
-                                           hover:border-[var(--color-blue)] active:border-[var(--color-blue)]"
+                                className="flex items-center justify-center w-10 h-10 rounded-md border link-hover"
+
                             >
                                 <img src={social.img} alt={social.alt} className="w-4 h-4"/>
                             </a>
@@ -78,7 +78,7 @@ const Footer = () => {
                         <li key={item.id}>
                             <a
                                 href={item.url}
-                               className="text-p1-semiBold text-[var(--color-white)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]"
+                               className="text-p1-semiBold text-[var(--color-white)] link-hover"
                             >
                                 {item.title}
                             </a>
@@ -87,16 +87,16 @@ const Footer = () => {
                 </ul>
             </div>
 
-            <div className="flex flex-col md:grid md:grid-cols-3 text-center gap-6 lg:gap-0 items-start justify-center">
-                <p className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
+            <div className="flex flex-col md:grid md:grid-cols-3 md:text-center gap-6 lg:gap-0 items-start justify-center">
+                <p className="text-p2 text-[var(--color-gray)]">
                     © 2025 Kingdom & Company. All rights reserved.
                 </p>
 
-                <a href="/privacy-policy.html" className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
+                <a href="/privacy-policy.html" className="text-p2 text-[var(--color-gray)] link-hover">
                     Privacy Policy
                 </a>
 
-                <a href="/terms-of-service.html" className="text-p2 text-[var(--color-gray)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]">
+                <a href="/terms-of-service.html" className="text-p2 text-[var(--color-gray)] link-hover">
                     Terms of Service
                 </a>
             </div>

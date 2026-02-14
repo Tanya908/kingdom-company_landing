@@ -8,8 +8,8 @@ export type CommonFieldsProps = {
 const CommonFields = ({ register }: CommonFieldsProps) => {
     return (
         <>
-            <div className="flex flex-col gap-2 mb-6">
-                <label htmlFor="fullName" className="text-p1 text-[var(--color-black)]">Full Name</label>
+            <div className="form-field">
+                <label htmlFor="fullName" className="form-label">Full Name</label>
                 <input
                     id="fullName"
                     type="text"
@@ -20,8 +20,8 @@ const CommonFields = ({ register }: CommonFieldsProps) => {
                 />
             </div>
 
-            <div className="flex flex-col gap-2 mb-6">
-                <label htmlFor="email" className="text-p1 text-[var(--color-black)]">Email</label>
+            <div className="form-field">
+                <label htmlFor="email" className="form-label">Email</label>
                 <input
                     id="email"
                     type="email"
@@ -32,8 +32,8 @@ const CommonFields = ({ register }: CommonFieldsProps) => {
                 />
             </div>
 
-            <div className="flex flex-col gap-2 mb-6">
-                <label htmlFor="phone" className="text-p1 text-[var(--color-black)]">Phone</label>
+            <div className="form-field">
+                <label htmlFor="phone" className="form-label">Phone</label>
                 <input
                     id="phone"
                     type="tel"

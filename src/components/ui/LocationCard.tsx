@@ -109,32 +109,34 @@ const LocationCard = () => {
                     >
                         <div
                             className="flex flex-col flex-1 bg-[var(--color-light-blue)] rounded-xl py-8 px-4
-                                       border border-transparent group-hover:border-[var(--color-orange)]"
+                                       border border-transparent card-hover"
                         >
-                            <h3 className="text-h3 text-[var(--color-black)] mb-4">{event.title}</h3>
+                            <h3 className="text-h3 text-[var(--color-black)] text-center mb-4 mx-auto w-full lg:w-96">{event.title}</h3>
 
-                            <p className="text-p1 mb-8">{event.description}</p>
+                            <p className="text-p1 mb-8 text-center">{event.description}</p>
 
                             <div className="md:hidden h-px w-full bg-[var(--color-gray)] mb-6" />
 
-                            <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8 mb-6">
+                            <div className="flex flex-col gap-6 md:grid md:grid-cols-2 md:gap-8 md:items-start min-h-24">
                                 {topInfo.map((item) => (
-                                    <div key={item.id}>
+                                    <div key={item.id} className="flex flex-col h-full">
                                         <div className="flex gap-3 items-center mb-2">
-                                            <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
+                                            <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8 shrink-0">
                                                 <img src={item.icon} alt={item.title} className="h-4 w-4" />
                                             </div>
                                             <span className="text-p1 text-[var(--color-black)]">{item.title}</span>
                                         </div>
 
-                                        {item.lines.map((line, index) => (
-                                            <p key={index} className="text-p1">{line.text}</p>
-                                        ))}
+                                        <div className="mt-auto">
+                                            {item.lines.map((line, index) => (
+                                                <p key={index} className="text-p1">{line.text}</p>
+                                            ))}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
 
-                            <div className="h-px w-full bg-[var(--color-gray)] mb-6" />
+                            <div className="h-px w-full bg-[var(--color-gray)] my-6" />
 
                             {locationInfo && (
                                 <div className="mb-6">
@@ -166,13 +168,14 @@ const LocationCard = () => {
 
                         <div
                             className="w-full h-[300px] rounded-xl overflow-hidden border border-transparent
-                                       group-hover:border-[var(--color-orange)] transition-colors"
+                                       card-hover transition-colors"
                             onClick={() =>
                                 window.open(
                                     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                                         `${event.mapLabel}`
                                     )}`,
-                                    "_blank"
+                                    "_blank",
+                                    "noopener,noreferrer"
                                 )
                             }
                         >

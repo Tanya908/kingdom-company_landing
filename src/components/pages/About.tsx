@@ -2,8 +2,8 @@ import Circles from "@/assets/icons/About.svg"
 
 const About = () => {
     return (
-        <section id="about" className="mt-16 mx-3 md:mx-6 mb-28">
-            <div className="flex flex-col md:flex-row md:justify-between md:gap-10">
+        <section id="about" className="section-x section-y">
+            <div className="flex flex-col md:flex-row md:justify-between md:gap-10 pt-10">
 
                 <div className="flex justify-start items-start gap-2 mb-8 md:mb-0 md:w-[30%] shrink-0">
                     <img src={Circles} alt="Circles icon" />
@@ -25,7 +25,6 @@ const About = () => {
                         vision, and real connections that empower you to take action.
                     </p>
                 </div>
-
             </div>
         </section>
 
