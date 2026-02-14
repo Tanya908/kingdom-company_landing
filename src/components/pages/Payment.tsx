@@ -8,7 +8,7 @@ const Payment = () => {
                 <p className="text-p1 md:w-1/2 text-justify">Kingdom & Company 2025 is more than just an event — it's a launchpad for vision, alignment, and Kingdom-driven momentum. Choose the registration tier that best fits your journey and join a community of leaders who build with purpose.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch md:justify-items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-10 items-stretch md:justify-items-center">
                 <PaymentCard name="StudentRegistration" />
                 <PaymentCard name="CoupleRegistration" popularity={true} />
                 <PaymentCard name="SingleRegistration" />

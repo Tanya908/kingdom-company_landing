@@ -1,8 +1,8 @@
 import MainLogo from "@/assets/MainLogo.svg?react"
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import { useState } from "react"
 import BurgerButton from "../ui/BurgerButton.tsx"
 import {navLinks} from "../../data/navigation.ts";
+import Button from "../ui/Button.tsx";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -28,13 +28,7 @@ const Header = () => {
                 </ul>
 
                 <div className="flex items-center justify-center gap-4">
-                    <a
-                        href="#payment"
-                        className=" hidden md:flex justify-center items-center gap-2 py-3 px-5 border
-                                    border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)]"
-                    >
-                        Register Now <span><img src={ButtonIcon} alt="icon" /></span>
-                    </a>
+                    <Button href="#payment" variant="secondary" className="hidden md:flex justify-center items-center">Register Now</Button>
 
                     <div className="lg:hidden">
                         <BurgerButton isOpen={isOpen}
@@ -60,14 +54,9 @@ const Header = () => {
 
                     <div className="h-px w-full bg-[var(--color-gray)] mb-8"></div>
 
-                    <a
-                        href="#payment"
-                        onClick={() => setIsOpen(false)}
-                        className="flex md:hidden justify-center items-center gap-2 py-3 px-5 border
-                                   border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)]"
-                    >
-                        Register Now <span><img src={ButtonIcon} alt="icon" /></span>
-                    </a>
+                    <Button href="#payment" variant="secondary" className="flex md:hidden justify-center items-center">
+                        Register Now
+                    </Button>
                 </div>
             )}
         </header>

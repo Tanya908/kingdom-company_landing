@@ -73,7 +73,7 @@ const Faq = () => {
                             </div>
 
                             {isOpen && (
-                                <p className="text-p1 mt-4 max-w-2xl text-justify">
+                                <p className="text-p1 mt-4 max-w-full md:max-w-72 lg:max-w-2xl text-justify">
                                     {faq.description}
                                 </p>
                             )}

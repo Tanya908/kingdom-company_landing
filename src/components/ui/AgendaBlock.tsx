@@ -3,7 +3,7 @@ import { agendaBlocks } from "../../data/agendaBlocks";
 import Close from "@/assets/icons/Close.svg?react";
 import Open from "@/assets/icons/Open.svg";
 import AgendaIcon from "@/assets/icons/AgendaIcon.svg";
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
+import Button from "./Button.tsx";
 
 type Props = {
     variant: keyof typeof agendaBlocks;
@@ -72,7 +72,7 @@ const AgendaBlock = ({ variant }: Props) => {
 
                     {block.agenda.days.map(day => (
                         <div key={day.day}>
-                            <div className="h-px w-full bg-[var(--color-gray)] my-6"/>
+                            <div className="h-px w-full bg-[var(--color-gray)] my-8"/>
 
                             <div className="flex flex-col lg:flex-row lg:items-center">
                                 <div className="flex flex-col lg:flex-row lg:items-center gap-6 flex-1">
@@ -91,7 +91,7 @@ const AgendaBlock = ({ variant }: Props) => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-2 ">
+                            <div className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-2">
                                 {day.sessions.map(session => (
                                     <div key={session.time} className="">
                                         <p className="text-p1-semiBold text-[var(--color-black)] mb-2 mt-6 max-w-lg">{session.time}</p>
@@ -102,14 +102,8 @@ const AgendaBlock = ({ variant }: Props) => {
                             </div>
                         </div>
                     ))}
-                        <a
-                            href="#payment"
-                            className="inline-flex items-center gap-2 py-3 px-5 border bg-[var(--color-blue)] rounded-[10px]
-                                       text-p2 text-[var(--color-white)] whitespace-nowrap"
-                        >
-                            Register Now
-                            <span><img src={ButtonIcon} alt="icon" /></span>
-                        </a>
+
+                    <Button href="#payment" className="inline-flex w-full md:w-auto mt-6 whitespace-nowrap">Register Now</Button>
                 </div>
             )}
             </div>

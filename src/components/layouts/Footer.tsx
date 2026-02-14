@@ -1,9 +1,9 @@
 import MainLogo from "@/assets/MainLogo.svg?react"
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import YouTube from "@/assets/icons/YouTube.svg"
 import Instagram from "@/assets/icons/Instagram.svg"
 import Facebook from "@/assets/icons/Facebook.svg"
 import {navLinks} from "../../data/navigation.ts";
+import Button from "../ui/Button.tsx";
 
 type SocialIcon = {link: string; img: string; alt: string;}
 
@@ -25,21 +25,15 @@ const Footer = () => {
                     <h4 className="text-h4 text-[var(--color-white)] text-center mb-8 max-w-3xl">
                         For general inquiries, registration questions, or partnership opportunities, reach out anytime:
                     </h4>
-                    <a
-                        href="#connect"
-                        className="w-full md:w-80 mb-4 flex justify-center items-center gap-2 py-3 px-5 border-none
-                                   bg-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-white)]"
-                    >
-                        Let’s Connect <span><img src={ButtonIcon} alt="icon"/></span>
-                    </a>
 
-                    <a
+                    <Button href="#connect" className="w-full md:w-sm mb-4 footer-hover-primary">Let’s Connect</Button>
+                    <Button
                         href="mailto:hello@kingdomcompany.ca"
-                        className="w-full md:w-80 flex justify-center items-center gap-2 py-3 px-5 border
-                                   border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)]"
+                        variant="primaryOutlined"
+                        className="w-full md:w-sm footer-hover-primaryOutlined"
                     >
-                        hello@kingdomcompany.ca <span><img src={ButtonIcon} alt="icon"/></span>
-                    </a>
+                        hello@kingdomcompany.ca
+                    </Button>
                 </div>
             </div>
 

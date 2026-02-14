@@ -1,6 +1,6 @@
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
 import type { RegistrationName} from "../../types/payments.ts";
 import {Registrations} from "../../data/payments.ts";
+import Button from "./Button.tsx";
 
 type RegistrationProps = {
     name: RegistrationName;
@@ -29,18 +29,18 @@ const PaymentCard = ({ name,popularity = false }: RegistrationProps) => {
                 )}
 
                 <div className="flex flex-col items-center justify-center">
-                    <h3 className="text-h3 text-center uppercase text-[var(--color-black)] max-w-xs">
+                    <h3 className="text-h3 text-center uppercase text-[var(--color-black)] max-w-[250px]">
                         {registration.name}
                     </h3>
                     <h3 className="text-h3 mb-4 mt-2">{registration.price}</h3>
                     <p className="text-p2 mr-auto max-w-xs lg:min-h-12">{registration.description}</p>
-                    <a
-                        href="#"
-                        className="flex w-full justify-center items-center gap-2 py-3 px-5 border border-[var(--color-blue)]
-                                   rounded-[10px] text-p2 text-[var(--color-blue)] my-8"
+                    <Button
+                        href="#connect"
+                        variant={popularity ? "primary" : "primaryOutlined"}
+                        className="w-full my-8"
                     >
-                        Buy Now <span><img src={ButtonIcon} alt="icon"/></span>
-                    </a>
+                        Register Now
+                    </Button>
                 </div>
 
                 <ul className="flex flex-col gap-2 min-h-40 overflow-hidden">

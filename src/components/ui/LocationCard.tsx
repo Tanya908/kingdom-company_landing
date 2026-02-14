@@ -1,6 +1,6 @@
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import MapboxMap from "./MapboxMap"
 import {locations} from "../../data/location.ts";
+import Button from "./Button.tsx";
 
 const LocationCard = () => {
     return (
@@ -23,9 +23,9 @@ const LocationCard = () => {
                             className="flex flex-col flex-1 bg-[var(--color-light-blue)] rounded-xl py-8 px-4
                                        border border-transparent card-hover"
                         >
-                            <h3 className="text-h3 text-[var(--color-black)] text-center mb-4 mx-auto w-full lg:w-96">{event.title}</h3>
+                            <h3 className="text-h3 text-[var(--color-black)] text-left md:text-center mb-4 mx-auto w-full lg:w-96">{event.title}</h3>
 
-                            <p className="text-p1 mb-8 text-center">{event.description}</p>
+                            <p className="text-p1 mb-8 text-left md:text-center">{event.description}</p>
 
                             <div className="md:hidden h-px w-full bg-[var(--color-gray)] mb-6" />
 
@@ -51,7 +51,7 @@ const LocationCard = () => {
                             <div className="h-px w-full bg-[var(--color-gray)] my-6" />
 
                             {locationInfo && (
-                                <div className="mb-6">
+                                <div className="mb-8">
                                     <div className="flex gap-3 items-center mb-2">
                                         <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
                                             <img src={locationInfo.icon} alt={locationInfo.title} className="h-4 w-4"/>
@@ -68,14 +68,8 @@ const LocationCard = () => {
                                     ))}
                                 </div>
                             )}
-                            <a
-                                href="#payment"
-                                className="mt-auto flex justify-center items-center gap-2 py-3 px-5 bg-[var(--color-blue)]
-                                           rounded-[10px] text-p2 text-white"
-                            >
-                                Register Now
-                                <img src={ButtonIcon} alt="icon" />
-                            </a>
+
+                            <Button href="#payment" className="mt-auto">Register Now</Button>
                         </div>
 
                         <div

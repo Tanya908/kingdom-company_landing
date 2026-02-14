@@ -221,6 +221,33 @@
     @apply hover:text-[var(--color-blue)] active:text-[var(--color-blue)] focus-visible:text-[var(--color-blue)] transition-colors duration-200
 }
 
+/* BUTTON */
+@utility button-base {
+    @apply inline-flex items-center justify-center gap-2 rounded-[10px] text-p2 transition-colors duration-200 cursor-pointer
+}
+
+@utility button-primary {
+    @apply py-4 px-8 bg-[var(--color-blue)] text-p1 text-[var(--color-white)] hover:bg-[var(--color-black)] active:bg-[var(--color-black)] border-none
+}
+
+@utility button-primaryOutlined {
+    @apply py-4 px-8 border border-[var(--color-blue)] text-p1 text-[var(--color-blue)] bg-transparent hover:border-[var(--color-black)] hover:text-[var(--color-black)]
+           active:border-[var(--color-black)] active:text-[var(--color-black)]
+}
+
+@utility button-secondary {
+    @apply px-5 py-3 text-p2 bg-transparent border border-[var(--color-blue)] text-[var(--color-blue)] hover:border-[var(--color-black)] hover:text-[var(--color-black)]
+           active:border-[var(--color-black)] active:text-[var(--color-black)]
+}
+
+@utility footer-hover-primary {
+    @apply hover:bg-[var(--color-white)] active:bg-[var(--color-white)] hover:text-[var(--color-blue)] active:text-[var(--color-blue)]
+}
+
+@utility footer-hover-primaryOutlined {
+    @apply hover:border-[var(--color-white)] active:border-[var(--color-white)] hover:text-[var(--color-white)] active:text-[var(--color-white)]
+}
+
 /* LOCATION CARD (PAYMENT CARD) */
 @utility card-hover {
     @apply border border-transparent hover:border-[var(--color-orange)] active:border-[var(--color-orange)]

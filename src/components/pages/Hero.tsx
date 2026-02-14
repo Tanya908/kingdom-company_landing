@@ -1,6 +1,6 @@
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg?react";
 import HeroImg from "@/assets/Hero.jpg"
 import ScrollDown from "@/assets/icons/ScrollDown.svg"
+import Button from "../ui/Button.tsx";
 
 
 const Hero = () => {
@@ -15,22 +15,9 @@ const Hero = () => {
             <h1 className="text-title text-[var(--color-black)] mb-6 w-full md:text-center md:mx-auto lg:w-3/4">Lead with Vision. Scale with Integrity.</h1>
             <p className="text-h5 mb-10 md:text-center md:mx-auto lg:w-4/5">Experience for entrepreneurs and leaders who want to build with excellence, lead with integrity, and align their business with something greater.</p>
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
-                <a
-                    href="#payment"
-                    className="flex  justify-center items-center gap-2 py-3 px-5 border
-                                   bg-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-white)] "
-                >
-                    Register Now <span><ButtonIcon className="text-[var(--color-white)]"/></span>
-                </a>
-
-                <a
-                    href="#payment"
-                    className="flex  justify-center items-center gap-2 py-3 px-5 border
-                                   border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)] "
-                >
-                    Explore the Vision <span><ButtonIcon className="text-[var(--color-blue)]"/></span>
-                </a>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mt-8 mb-14">
+                <Button href="#payment" className="w-full md:w-auto md:min-w-3xs">Register Now </Button>
+                <Button href="#about" variant="primaryOutlined" className="w-full md:w-auto md:min-w-3xs">Explore the Vision </Button>
             </div>
 
             <div className="mt-12 -mx-3 md:-mx-10 lg:-mx-20 relative">

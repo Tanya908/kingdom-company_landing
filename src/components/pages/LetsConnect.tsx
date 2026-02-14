@@ -1,9 +1,9 @@
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
 import AcceptIcon from "@/assets/icons/AcceptIcon.svg";
 import {useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 import CommonFields from "../ui/CommonFields.tsx";
 import type {FormValues} from "../../types/form.ts";
+import Button from "../ui/Button.tsx";
 
 type BusinessSize = {
     id: number
@@ -74,8 +74,8 @@ const LetsConnect = () => {
                     </button>
                 </div>
 
-                <form className="flex flex-col justify-center items-center py-12 px-2 bg-[var(--color-white)]">
-                    <fieldset className="w-[80%] lg:w-[55%]">
+                <form className="flex flex-col justify-center items-center py-12 px-3 bg-[var(--color-white)]">
+                    <fieldset className="w-full md:w-[80%] lg:w-[55%]">
                         <CommonFields register={register}/>
 
                         {/*PASTOR'S NAME*/}
@@ -162,10 +162,7 @@ const LetsConnect = () => {
                         </div>
 
                         {/*SUBMIT BUTTON*/}
-                        <button type="submit" className="w-full flex justify-center items-center gap-2 py-3 px-5 border
-                            bg-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-white)]">
-                            Confirm & Pay <span><img src={ButtonIcon} alt="" aria-hidden/></span>
-                        </button>
+                        <Button type="submit" className="w-full">Confirm & Pay</Button>
                     </fieldset>
                 </form>
             </div>

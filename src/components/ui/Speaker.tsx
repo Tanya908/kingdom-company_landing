@@ -1,7 +1,8 @@
 import {useState} from "react";
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
 import {Speakers} from "../../data/speakers.ts";
 import type {SpeakerName} from "../../types/speaker.ts";
+import Button from "./Button.tsx";
+import ReadMore from "@/assets/icons/ReadMore.svg?react"
 
 type SpeakerProps = {
     name: SpeakerName;
@@ -27,20 +28,20 @@ const [isOpen, setIsOpen] = useState(false);
                     </p>
 
                     {isOpen && (
-                        <p className="text-h6 mb-8">{speaker.description.details}</p>
+                        <p className="text-h6 mb-6">{speaker.description.details}</p>
                     )}
                 </div>
 
-                <button
-                    type="button"
+                <Button
+                    variant="secondary"
                     aria-expanded={isOpen}
+                    showIcon={false}
                     onClick={() => setIsOpen((prev) => !prev)}
-                    className="flex justify-center items-center gap-2 py-3 px-5 border border-[var(--color-blue)] rounded-[10px]
-                               text-p2 text-[var(--color-blue)] md:w-fit md:mt-auto"
+                    className="md:w-fit md:mt-auto flex items-center justify-center"
                 >
-                    {isOpen ? "Read less" : "Read more"}
-                    <span><img src={ButtonIcon} alt="" aria-hidden /></span>
-                </button>
+                    <span className="leading-none">Read more</span>
+                    <ReadMore className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}/>
+                </Button>
             </div>
         </div>
     )

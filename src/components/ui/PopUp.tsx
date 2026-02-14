@@ -1,7 +1,7 @@
 import Close from "@/assets/icons/Close.svg?react";
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
 import AcceptIcon from "@/assets/icons/AcceptIcon.svg";
 import {useEffect} from "react";
+import Button from "./Button.tsx";
 
 type PopUpProps = {
     onClose: () => void;
@@ -113,10 +113,7 @@ const PopUp = ({ onClose }: PopUpProps) => {
                 </div>
 
                 {/*SUBMIT BUTTON*/}
-                <button type="submit" className="w-full border-none flex justify-center items-center gap-2 py-3 px-5
-                            bg-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-white)]">
-                    Confirm & Pay <span><img src={ButtonIcon} alt="" aria-hidden/></span>
-                </button>
+                <Button type="submit" className="w-full">Confirm & Pay</Button>
             </form>
             </div>
         </section>
