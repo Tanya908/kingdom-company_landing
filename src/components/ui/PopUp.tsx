@@ -1,4 +1,4 @@
-import CloseBlack from "@/assets/icons/CloseBlack.svg";
+import Close from "@/assets/icons/Close.svg?react";
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
 import AcceptIcon from "@/assets/icons/AcceptIcon.svg";
 import {useEffect} from "react";
@@ -36,7 +36,7 @@ const PopUp = ({ onClose }: PopUpProps) => {
                     aria-label="Close popup"
                     onClick={onClose}
                 >
-                    <img src={CloseBlack} alt="" />
+                    <Close className="text-[var(--color-black)] w-6 h-6" />
                 </button>
             </div>
 

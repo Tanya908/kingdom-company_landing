@@ -1,5 +1,5 @@
 import Circles from "@/assets/icons/About.svg"
-import Close from "@/assets/icons/Close.svg";
+import Close from "@/assets/icons/Close.svg?react";
 import Open from "@/assets/icons/Open.svg";
 import {useState} from "react";
 
@@ -63,13 +63,13 @@ const Faq = () => {
                                     aria-expanded={isOpen}
                                     className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-blue)] cursor-pointer"
                                 >
-                                    <img
-                                        src={isOpen ? Close : Open}
-                                        alt=""
-                                        aria-hidden="true"
-                                        className="w-4 h-4"
-                                    />
+                                    {isOpen ? (
+                                        <Close className="w-4 h-4 text-white" />
+                                    ) : (
+                                        <img src={Open} alt="" aria-hidden className="w-4 h-4" />
+                                    )}
                                 </button>
+
                             </div>
 
                             {isOpen && (

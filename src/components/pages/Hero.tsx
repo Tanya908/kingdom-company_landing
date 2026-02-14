@@ -1,4 +1,4 @@
-import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
+import ButtonIcon from "@/assets/icons/ButtonIcon.svg?react";
 import HeroImg from "@/assets/Hero.jpg"
 import ScrollDown from "@/assets/icons/ScrollDown.svg"
 
@@ -21,7 +21,7 @@ const Hero = () => {
                     className="flex  justify-center items-center gap-2 py-3 px-5 border
                                    bg-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-white)] "
                 >
-                    Register Now <span><img src={ButtonIcon} alt="icon" /></span>
+                    Register Now <span><ButtonIcon className="text-[var(--color-white)]"/></span>
                 </a>
 
                 <a
@@ -29,7 +29,7 @@ const Hero = () => {
                     className="flex  justify-center items-center gap-2 py-3 px-5 border
                                    border-[var(--color-blue)] rounded-[10px] text-p2 text-[var(--color-blue)] "
                 >
-                    Explore the Vision <span><img src={ButtonIcon} alt="icon"  /></span>
+                    Explore the Vision <span><ButtonIcon className="text-[var(--color-blue)]"/></span>
                 </a>
             </div>
 

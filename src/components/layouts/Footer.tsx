@@ -1,4 +1,4 @@
-import MainLogoBlack from "@/assets/MainLogoBlack.svg"
+import MainLogo from "@/assets/MainLogo.svg?react"
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import YouTube from "@/assets/icons/YouTube.svg"
 import Instagram from "@/assets/icons/Instagram.svg"
@@ -17,7 +17,7 @@ const Footer = () => {
     return (
         <footer className="bg-[var(--color-black)] rounded-t-3xl section-y section-x">
             <a href="#hero" >
-                <img className="mb-14 mx-auto w-36 cursor-pointer" src={MainLogoBlack} alt="Kingdom & Company" />
+                <MainLogo className="text-[var(--color-white)] mb-14 mx-auto w-48 lg:w-56 h-16 cursor-pointer"/>
             </a>
 
             <div className="px-3">

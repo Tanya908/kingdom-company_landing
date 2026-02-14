@@ -1,4 +1,4 @@
-import MainLogo from "@/assets/MainLogo.svg"
+import MainLogo from "@/assets/MainLogo.svg?react"
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg"
 import { useState } from "react"
 import BurgerButton from "../ui/BurgerButton.tsx"
@@ -15,7 +15,9 @@ const Header = () => {
             <div className="fixed top-0 left-0 right-0 z-50 mt-8 mx-2 md:mx-20 flex justify-between items-center
                             py-3 px-2 border border-[var(--color-gray)] rounded-lg bg-[var(--color-white)]"
             >
-                <a href="#hero" className="w-28 md:w-40"><img src={MainLogo} alt="Kingdom & Company" /></a>
+                <a href="#hero" className="w-28 md:w-40 cursor-pointer">
+                    <MainLogo className="text-[var(--color-black)]"/>
+                </a>
 
                 <ul className="hidden lg:flex gap-6 items-center justify-center">
                     {navLinks.map((item) => (

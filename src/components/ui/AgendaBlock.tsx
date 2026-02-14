@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { agendaBlocks } from "../../data/agendaBlocks";
-import Close from "@/assets/icons/Close.svg";
+import Close from "@/assets/icons/Close.svg?react";
 import Open from "@/assets/icons/Open.svg";
 import AgendaIcon from "@/assets/icons/AgendaIcon.svg";
 import ButtonIcon from "@/assets/icons/ButtonIcon.svg";
@@ -12,6 +12,10 @@ type Props = {
 const AgendaBlock = ({ variant }: Props) => {
     const block = agendaBlocks[variant];
     const [isOpen, setIsOpen] = useState(variant === "kc2025");
+
+    const toggle = () => {
+        if (block.agenda) setIsOpen(prev => !prev);
+    };
 
     if (!block) return null;
 
@@ -26,17 +30,24 @@ const AgendaBlock = ({ variant }: Props) => {
                         {block.title}
                     </h4>
 
-                    {block.agenda && (
-                        <button
-                            type="button"
-                            onClick={() => setIsOpen(p => !p)}
-                            aria-expanded={isOpen}
-                            className="flex items-center justify-center aspect-square rounded-full bg-[var(--color-blue)]
-                                       w-10 h-10 lg:order-3 lg:col-span-1 justify-self-end"
-                        >
-                            <img src={isOpen ? Close : Open} alt="Toggle agenda" className="w-4 h-4" />
-                        </button>
-                    )}
+                {block.agenda && (
+                    <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            toggle();
+                        }}
+                        className="flex items-center justify-center aspect-square rounded-full bg-[var(--color-blue)]
+                                   cursor-pointer w-10 h-10 lg:order-3 lg:col-span-1 justify-self-end"
+                    >
+                        {isOpen ? (
+                            <Close className="w-4 h-4 text-white" />
+                        ) : (
+                            <img src={Open} alt="" aria-hidden className="w-4 h-4" />
+                        )}
+                    </button>
+                )}
 
                 <div className="flex items-center text-center lg:justify-self-start
                                 col-span-3 lg:col-span-1 lg:order-2 mt-4"
@@ -80,7 +91,7 @@ const AgendaBlock = ({ variant }: Props) => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-2">
+                            <div className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-2 ">
                                 {day.sessions.map(session => (
                                     <div key={session.time} className="">
                                         <p className="text-p1-semiBold text-[var(--color-black)] mb-2 mt-6 max-w-lg">{session.time}</p>
