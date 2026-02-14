@@ -29,7 +29,7 @@ const PaymentCard = ({ name,popularity = false }: RegistrationProps) => {
                 )}
 
                 <div className="flex flex-col items-center justify-center">
-                    <h3 className="text-h3 text-center uppercase text-[var(--color-black)] max-w-[250px]">
+                    <h3 className="text-h3 text-center uppercase text-[var(--color-black)] max-w-60">
                         {registration.name}
                     </h3>
                     <h3 className="text-h3 mb-4 mt-2">{registration.price}</h3>

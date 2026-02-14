@@ -12,9 +12,9 @@ const Speaker = ({ name }: SpeakerProps) => {
 const [isOpen, setIsOpen] = useState(false);
     const speaker = Speakers[name];
     return (
-        <div className="py-8 px-2 border-y grid grid-cols-1 md:grid-cols-[30%_1fr] lg:grid-cols-[40%_1fr] md:gap-8">
-            <div className="flex flex-col lg:flex-row lg:gap-10 h-full mb-8">
-                <img src={speaker.img} alt="Pastor Daniel McKillop" className="rounded-2xl w-1/2 self-start"/>
+        <div className="py-8 px-2 border-y grid grid-cols-1 md:grid-cols-[30%_1fr] lg:grid-cols-[50%_1fr] md:gap-8">
+            <div className="flex flex-col lg:flex-row lg:gap-10 mb-8">
+                <img src={speaker.img} alt="Pastor Daniel McKillop" className="rounded-2xl w-52 self-start"/>
                 <div>
                     <h3 className="text-p1-semiBold text-[var(--color-black)] mt-6 lg:mt-0 mb-4">{speaker.name}</h3>
                     <p className="text-p2">{speaker.role}</p>

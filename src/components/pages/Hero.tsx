@@ -5,15 +5,15 @@ import Button from "../ui/Button.tsx";
 
 const Hero = () => {
     return (
-        <section id="hero" className="section-x pt-32 md:pt-40 bg-[var(--color-light-blue)]">
+        <section id="hero" className="section-x pt-36 md:pt-40 bg-[var(--color-light-blue)]">
             <div className="w-full border-y mb-6 md:border-0">
                 <p className="text-center text-p3 py-2 md:w-max md:px-8 md:py-2 md:border-y md:mx-auto">
                     Where Faith Meets Strategy
                 </p>
             </div>
 
-            <h1 className="text-title text-[var(--color-black)] mb-6 w-full md:text-center md:mx-auto lg:w-3/4">Lead with Vision. Scale with Integrity.</h1>
-            <p className="text-h5 mb-10 md:text-center md:mx-auto lg:w-4/5">Experience for entrepreneurs and leaders who want to build with excellence, lead with integrity, and align their business with something greater.</p>
+            <h1 className="text-title text-[var(--color-black)] mb-6 w-full md:text-center md:mx-auto lg:w-2xl">Lead with Vision. Scale with Integrity.</h1>
+            <p className="text-h5 mb-10 md:text-center md:mx-auto lg:w-3xl">Experience for entrepreneurs and leaders who want to build with excellence, lead with integrity, and align their business with something greater.</p>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mt-8 mb-14">
                 <Button href="#payment" className="w-full md:w-auto md:min-w-3xs">Register Now </Button>
@@ -28,7 +28,7 @@ const Hero = () => {
 
                 <div className="gradient" />
 
-                <div className="absolute bottom-4 left-6 right-6 flex flex-col md:flex-row md:justify-between ">
+                <div className="absolute bottom-4 inset-x-0 section-x flex flex-col md:flex-row md:justify-between">
                     <p className="text-[var(--color-white)] text-p1 mb-4"> Where Faith Meets Strategy</p>
 
                     <div className="flex items-center gap-4">

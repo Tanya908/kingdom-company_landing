@@ -48,10 +48,10 @@ const LocationCard = () => {
                                 ))}
                             </div>
 
-                            <div className="h-px w-full bg-[var(--color-gray)] my-6" />
+                            <div className="hidden md:flex h-px w-full bg-[var(--color-gray)] my-6" />
 
                             {locationInfo && (
-                                <div className="mb-8">
+                                <div className="mb-8 mt-6 md:mt-0">
                                     <div className="flex gap-3 items-center mb-2">
                                         <div className="flex items-center justify-center bg-[var(--color-orange)] rounded-full w-8 h-8">
                                             <img src={locationInfo.icon} alt={locationInfo.title} className="h-4 w-4"/>

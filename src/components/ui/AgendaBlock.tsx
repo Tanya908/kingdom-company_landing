@@ -11,7 +11,7 @@ type Props = {
 
 const AgendaBlock = ({ variant }: Props) => {
     const block = agendaBlocks[variant];
-    const [isOpen, setIsOpen] = useState(variant === "kc2025");
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
         if (block.agenda) setIsOpen(prev => !prev);

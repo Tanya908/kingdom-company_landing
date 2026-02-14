@@ -17,7 +17,7 @@ const Footer = () => {
     return (
         <footer className="bg-[var(--color-black)] rounded-t-3xl section-y section-x">
             <a href="#hero" >
-                <MainLogo className="text-[var(--color-white)] mb-14 mx-auto w-48 lg:w-56 h-16 cursor-pointer"/>
+                <MainLogo className="text-[var(--color-white)] mb-14 mx-auto w-40 md:w-44 lg:w-56 h-16 cursor-pointer"/>
             </a>
 
             <div className="px-3">

@@ -9,7 +9,7 @@ const ForPartners = () => {
     return (
         <>
             <section className="section-x section-y">
-                <div className="px-2 pt-10 md:pt-12 bg-[var(--color-light-blue)] rounded-xl">
+                <div className="px-2 pt-10 md:pt-16 bg-[var(--color-light-blue)] rounded-xl">
                     <div className="flex flex-col justify-center items-center md:w-[80%] max-w-[560px] mx-auto">
                         <h2 className="text-h1 text-[var(--color-black)] text-center">Want to be a Kingdom Partner?</h2>
                         <p className="text-p1 mt-4 text-center">We’re building for the long term. If your company or brand is interested in sponsorship or aligning with this movement, we’d love to connect.</p>
@@ -27,7 +27,7 @@ const ForPartners = () => {
                          className="rounded-xl aspect-auto w-full max-h-[600px] object-cover"
                     />
                     <div className="rounded-xl gradient" />
-                    <div className="absolute bottom-2 inset-x-0 flex justify-center">
+                    <div className="absolute bottom-4 inset-x-0 flex justify-center">
                         <p className="text-[var(--color-white)] text-p1 text-center">
                             Where faith and leadership meet
                         </p>
