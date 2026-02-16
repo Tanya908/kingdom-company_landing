@@ -9,8 +9,15 @@ import LetsConnect from "./components/pages/LetsConnect.tsx";
 import Faq from "./components/pages/Faq.tsx";
 import ForPartners from "./components/pages/ForPartners.tsx";
 import Footer from "./components/layouts/Footer.tsx";
+import Preloader from "./components/ui/Preloader.tsx";
+import {useState} from "react";
 
 const App = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    if (isLoading) {
+        return <Preloader onFinish={() => setIsLoading(false)} />;
+    }
     return (
             <>
                 <Header />
