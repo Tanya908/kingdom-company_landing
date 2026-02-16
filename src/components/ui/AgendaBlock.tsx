@@ -4,6 +4,7 @@ import Close from "@/assets/icons/Close.svg?react";
 import Open from "@/assets/icons/Open.svg";
 import AgendaIcon from "@/assets/icons/AgendaIcon.svg";
 import Button from "./Button.tsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {
     variant: keyof typeof agendaBlocks;
@@ -41,11 +42,16 @@ const AgendaBlock = ({ variant }: Props) => {
                         className="flex items-center justify-center aspect-square rounded-full bg-[var(--color-blue)]
                                    cursor-pointer w-10 h-10 lg:order-3 lg:col-span-1 justify-self-end"
                     >
-                        {isOpen ? (
-                            <Close className="w-4 h-4 text-white" />
-                        ) : (
-                            <img src={Open} alt="" aria-hidden className="w-4 h-4" />
-                        )}
+                        <motion.div
+                            animate={{ rotate: isOpen ? 180 : 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            {isOpen ? (
+                                <Close className="w-4 h-4 text-[var(--color-white)]" />
+                            ) : (
+                                <img src={Open} alt="" aria-hidden className="w-4 h-4" />
+                            )}
+                        </motion.div>
                     </button>
                 )}
 
@@ -58,54 +64,59 @@ const AgendaBlock = ({ variant }: Props) => {
                 </div>
             </div>
 
-            {block.agenda && isOpen && (
-                <div className="px-2 mt-10">
-                    <div className="flex flex-col lg:flex-row lg:justify-between gap-2">
-                        <div className="lg:w-1/2">
-                            <h4 className="text-p1-semiBold text-[var(--color-black)]">{block.agenda.title}</h4>
+            <AnimatePresence initial={false}>
+                {block.agenda && isOpen && (
+                    <motion.div className="px-2 mt-10"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.35, ease: "easeInOut" }}>
+                        <div className="flex flex-col lg:flex-row lg:justify-between gap-2">
+                            <div className="lg:w-1/2">
+                                <h4 className="text-p1-semiBold text-[var(--color-black)]">{block.agenda.title}</h4>
+                            </div>
+
+                            <div className="lg:w-1/2 mt-6 lg:mt-0">
+                                <p className="text-p1 max-w-2xl lg:max-w-lg">{block.agenda.description}</p>
+                            </div>
                         </div>
 
-                        <div className="lg:w-1/2 mt-6 lg:mt-0">
-                            <p className="text-p1 max-w-2xl lg:max-w-lg">{block.agenda.description}</p>
-                        </div>
-                    </div>
+                        {block.agenda.days.map(day => (
+                            <div key={day.day}>
+                                <div className="h-px w-full bg-[var(--color-gray)] my-8"/>
 
-                    {block.agenda.days.map(day => (
-                        <div key={day.day}>
-                            <div className="h-px w-full bg-[var(--color-gray)] my-8"/>
-
-                            <div className="flex flex-col lg:flex-row lg:items-center">
-                                <div className="flex flex-col lg:flex-row lg:items-center gap-6 flex-1">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--color-orange)]">
-                                            <img src={AgendaIcon} alt="icon" />
+                                <div className="flex flex-col lg:flex-row lg:items-center">
+                                    <div className="flex flex-col lg:flex-row lg:items-center gap-6 flex-1">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--color-orange)]">
+                                                <img src={AgendaIcon} alt="icon" />
+                                            </div>
+                                            <h4 className="text-h4 text-[var(--color-black)] max-w-lg">{day.day}</h4>
                                         </div>
-                                        <h4 className="text-h4 text-[var(--color-black)] max-w-lg">{day.day}</h4>
+
+                                        <p className="text-p2 mt-1.5 mb-6 lg:mt-0 lg:mb-0">{day.date}</p>
                                     </div>
 
-                                    <p className="text-p2 mt-1.5 mb-6 lg:mt-0 lg:mb-0">{day.date}</p>
-                                </div>
-
-                                <div className="flex items-center justify-start flex-1">
-                                    <p className="text-p1-semiBold border py-2 px-4 rounded-lg max-w-lg">{day.doorsOpen}</p>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-2">
-                                {day.sessions.map(session => (
-                                    <div key={session.time} className="">
-                                        <p className="text-p1-semiBold text-[var(--color-black)] mb-2 mt-6 max-w-lg">{session.time}</p>
-                                        <p className="text-p1-Bold mb-4 uppercase max-w-lg">{session.title}</p>
-                                        <p className="text-p2 mt-4 max-w-lg">{session.description}</p>
+                                    <div className="flex items-center justify-start flex-1">
+                                        <p className="text-p1-semiBold border py-2 px-4 rounded-lg max-w-lg">{day.doorsOpen}</p>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                                </div>
 
-                    <Button href="#payment" className="inline-flex w-full md:w-auto mt-6 whitespace-nowrap">Register Now</Button>
-                </div>
-            )}
+                                <div className="grid grid-cols-1 auto-rows-auto lg:grid-cols-2 lg:grid-rows-2">
+                                    {day.sessions.map(session => (
+                                        <div key={session.time} className="">
+                                            <p className="text-p1-semiBold text-[var(--color-black)] mb-2 mt-6 max-w-lg">{session.time}</p>
+                                            <p className="text-p1-Bold mb-4 uppercase max-w-lg">{session.title}</p>
+                                            <p className="text-p2 mt-4 max-w-lg">{session.description}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                        <Button href="#payment" className="inline-flex w-full md:w-auto mt-6 whitespace-nowrap">Register Now</Button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
             </div>
     );
 };

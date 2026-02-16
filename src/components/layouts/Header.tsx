@@ -3,6 +3,7 @@ import { useState } from "react"
 import BurgerButton from "../ui/BurgerButton.tsx"
 import {navLinks} from "../../data/navigation.ts";
 import Button from "../ui/Button.tsx";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -38,27 +39,34 @@ const Header = () => {
                 </div>
             </div>
 
-            {isOpen && (
-                <div className="fixed inset-0 h-screen z-40 lg:hidden bg-[var(--color-light-blue)] pt-24 md:pt-0 px-2
-                                md:fixed md:inset-auto md:top-[120px] md:left-0 md:right-0 md:h-auto"
-                >
-                    <ul className="my-14 flex flex-col gap-6 items-center justify-center">
-                        {navLinks.map((item) => (
-                            <li key={item.id}>
-                                <a className="text-p1-semiBold link-hover" href={item.url} onClick={() => setIsOpen(false)}>
-                                    {item.title}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                        className="fixed inset-0 h-screen z-40 lg:hidden bg-[var(--color-light-blue)] pt-24 md:pt-0 px-2
+                                    md:fixed md:inset-auto md:top-[120px] md:left-0 md:right-0 md:h-auto"
+                    >
+                        <ul className="my-14 flex flex-col gap-6 items-center justify-center">
+                            {navLinks.map((item) => (
+                                <li key={item.id}>
+                                    <a className="text-p1-semiBold link-hover" href={item.url} onClick={() => setIsOpen(false)}>
+                                        {item.title}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
 
-                    <div className="h-px w-full bg-[var(--color-gray)] mb-8"></div>
+                        <div className="h-px w-full bg-[var(--color-gray)] mb-8"></div>
 
-                    <Button href="#payment" variant="secondary" className="flex md:hidden justify-center items-center">
-                        Register Now
-                    </Button>
-                </div>
-            )}
+                        <Button href="#payment" variant="secondary" className="flex md:hidden justify-center items-center">
+                            Register Now
+                        </Button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     )
 }

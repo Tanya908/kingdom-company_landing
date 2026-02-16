@@ -2,6 +2,7 @@ import Circles from "@/assets/icons/About.svg"
 import Close from "@/assets/icons/Close.svg?react";
 import Open from "@/assets/icons/Open.svg";
 import {useState} from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Faq = {
     title: string;
@@ -63,25 +64,37 @@ const Faq = () => {
                                     aria-expanded={isOpen}
                                     className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-blue)] cursor-pointer"
                                 >
-                                    {isOpen ? (
-                                        <Close className="w-4 h-4 text-white" />
-                                    ) : (
-                                        <img src={Open} alt="" aria-hidden className="w-4 h-4" />
-                                    )}
+                                    <motion.div
+                                        animate={{ rotate: isOpen ? 180 : 0 }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        {isOpen ? (
+                                            <Close className="w-4 h-4 text-[var(--color-white)]" />
+                                        ) : (
+                                            <img src={Open} alt="" aria-hidden className="w-4 h-4" />
+                                        )}
+                                    </motion.div>
                                 </button>
-
                             </div>
-
-                            {isOpen && (
-                                <p className="text-p1 mt-4 max-w-full md:max-w-72 lg:max-w-2xl text-justify">
-                                    {faq.description}
-                                </p>
-                            )}
+                            <AnimatePresence initial={false}>
+                                {isOpen && (
+                                    <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                                        className="overflow-hidden"
+                                    >
+                                        <p className="text-p1 mt-4 md:max-w-72 lg:max-w-2xl text-justify">
+                                            {faq.description}
+                                        </p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </div>
                     );
                 })}
             </div>
-
         </section>
     )
 }

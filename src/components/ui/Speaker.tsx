@@ -3,6 +3,7 @@ import {Speakers} from "../../data/speakers.ts";
 import type {SpeakerName} from "../../types/speaker.ts";
 import Button from "./Button.tsx";
 import ReadMore from "@/assets/icons/ReadMore.svg?react"
+import { motion, AnimatePresence } from "framer-motion";
 
 type SpeakerProps = {
     name: SpeakerName;
@@ -27,9 +28,29 @@ const [isOpen, setIsOpen] = useState(false);
                         {speaker.description.intro}
                     </p>
 
-                    {isOpen && (
-                        <p className="text-h6 mb-6">{speaker.description.details}</p>
-                    )}
+                    <AnimatePresence initial={false}>
+                        {isOpen && (
+                            <motion.div
+                                initial={{ height: 0 }}
+                                animate={{ height: "auto" }}
+                                exit={{ height: 0 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 120,
+                                    damping: 20,
+                                    mass: 0.6
+                                }}
+                                className="overflow-hidden"
+                            >
+                                <motion.p
+                                    exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                                    className="py-4 text-h6"
+                                >
+                                    {speaker.description.details}
+                                </motion.p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
 
                 <Button

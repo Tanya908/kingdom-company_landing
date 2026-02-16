@@ -47,6 +47,7 @@ const LetsConnect = () => {
                         type="button"
                         onClick={() => setActiveTab("new")}
                         className={`form-choice rounded-t-2xl md:rounded-t-none md:rounded-tl-2xl 
+                                    transition-all duration-300 ease-in-out
                                     ${activeTab === "new" ? "bg-[var(--color-white)]" 
                                                           : "bg-[var(--color-light-blue)]"}
                                   `}
@@ -55,13 +56,14 @@ const LetsConnect = () => {
                             className={`blue-circle ${activeTab === "new" ? "bg-[var(--color-blue)] border-[var(--color-blue)]" 
                                                                           : "border-[var(--color-dark-gray)] bg-transparent"}`}
                         />
-                        <h4 className="text-h4 text-[var(--color-black)]">I am a new member</h4>
+                        <h4 className="text-h4 text-[var(--color-black)] transition-colors duration-300">I am a new member</h4>
                     </button>
 
                     <button
                         type="button"
                         onClick={() => setActiveTab("existing")}
-                        className={`form-choice rounded-none md:rounded-tr-2xl 
+                        className={`form-choice rounded-none md:rounded-tr-2xl
+                                    transition-all duration-300 ease-in-out      
                                     ${activeTab === "existing" ? "bg-[var(--color-white)]" 
                                                                : "bg-[var(--color-light-blue)]"}`}
                     >
@@ -70,7 +72,7 @@ const LetsConnect = () => {
                                         ${activeTab === "existing" ? "bg-[var(--color-blue)] border-[var(--color-blue)]"
                                                                    : "border-[var(--color-dark-gray)] bg-transparent"}`}
                         />
-                        <h4 className="text-h4 text-[var(--color-black)]">Already part of the K&C community?</h4>
+                        <h4 className="text-h4 text-[var(--color-black)] transition-colors duration-300">Already part of the K&C community?</h4>
                     </button>
                 </div>
 
