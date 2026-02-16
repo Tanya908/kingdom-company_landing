@@ -27,15 +27,41 @@ export const businessSizes: BusinessSize[] = [
 
 const LetsConnect = () => {
 
-    const { register, watch, setValue} = useForm<FormValues>();
+    const {register,watch,setValue,handleSubmit,reset} = useForm<FormValues>();
     const hasBusiness = watch("business");
-    const [activeTab, setActiveTab] = useState<"new" | "existing">("new");
+    const [memberType, setMemberType] = useState<"new" | "existing">("new");
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     useEffect(() => {
         if (hasBusiness === "no") {
             setValue("businessSize", undefined);
         }
     }, [hasBusiness, setValue]);
+
+    useEffect(() => {
+        reset({
+            business: undefined,
+            businessSize: undefined,
+        });
+    }, [memberType, reset]);
+
+    const onSubmit = async (data: FormValues) => {
+        const payload = { ...data, memberType };
+
+        try {
+            setIsSubmitted(true);
+            console.log(payload);
+            reset();
+
+            setTimeout(() => {
+                setIsSubmitted(false);
+            }, 2000);
+
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
 
     return (
         <section id="connect" className="bg-[var(--color-light-blue)] section-y section-x">
@@ -45,15 +71,15 @@ const LetsConnect = () => {
                 <div className="flex flex-col md:flex-row">
                     <button
                         type="button"
-                        onClick={() => setActiveTab("new")}
+                        onClick={() => setMemberType("new")}
                         className={`form-choice rounded-t-2xl md:rounded-t-none md:rounded-tl-2xl 
                                     transition-all duration-300 ease-in-out
-                                    ${activeTab === "new" ? "bg-[var(--color-white)]" 
+                                    ${memberType === "new" ? "bg-[var(--color-white)]" 
                                                           : "bg-[var(--color-light-blue)]"}
                                   `}
                     >
                         <div
-                            className={`blue-circle ${activeTab === "new" ? "bg-[var(--color-blue)] border-[var(--color-blue)]" 
+                            className={`blue-circle ${memberType === "new" ? "bg-[var(--color-blue)] border-[var(--color-blue)]" 
                                                                           : "border-[var(--color-dark-gray)] bg-transparent"}`}
                         />
                         <h4 className="text-h4 text-[var(--color-black)] transition-colors duration-300">I am a new member</h4>
@@ -61,22 +87,22 @@ const LetsConnect = () => {
 
                     <button
                         type="button"
-                        onClick={() => setActiveTab("existing")}
+                        onClick={() => setMemberType("existing")}
                         className={`form-choice rounded-none md:rounded-tr-2xl
                                     transition-all duration-300 ease-in-out      
-                                    ${activeTab === "existing" ? "bg-[var(--color-white)]" 
+                                    ${memberType === "existing" ? "bg-[var(--color-white)]" 
                                                                : "bg-[var(--color-light-blue)]"}`}
                     >
                         <div
                             className={`blue-circle shrink-0
-                                        ${activeTab === "existing" ? "bg-[var(--color-blue)] border-[var(--color-blue)]"
+                                        ${memberType === "existing" ? "bg-[var(--color-blue)] border-[var(--color-blue)]"
                                                                    : "border-[var(--color-dark-gray)] bg-transparent"}`}
                         />
                         <h4 className="text-h4 text-[var(--color-black)] transition-colors duration-300">Already part of the K&C community?</h4>
                     </button>
                 </div>
 
-                <form className="flex flex-col justify-center items-center py-12 px-3 bg-[var(--color-white)]">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center py-12 px-3 bg-[var(--color-white)]">
                     <fieldset className="w-full md:w-[80%] lg:w-[55%]">
                         <CommonFields register={register}/>
 
@@ -95,7 +121,7 @@ const LetsConnect = () => {
                         </div>
 
                         {/*BUSINESS*/}
-                        {activeTab === "new" && (
+                        {memberType === "new" && (
                             <div className="mt-6 mb-8">
                                 <p className="form-label mb-6">
                                     Do you currently own a business or are you planning a startup?
@@ -115,7 +141,7 @@ const LetsConnect = () => {
                                     <label className="radio-position">
                                         <input
                                             type="radio"
-                                            {...register("business")}
+                                            {...register("business", { required: true })}
                                             value="no"
                                             className="form-radio"
                                         />
@@ -164,7 +190,16 @@ const LetsConnect = () => {
                         </div>
 
                         {/*SUBMIT BUTTON*/}
-                        <Button type="submit" className="w-full">Confirm & Pay</Button>
+                        <Button type="submit"
+                                disabled={isSubmitted}
+                                className={`w-full transition-all duration-300
+                                         ${isSubmitted
+                                            ? "bg-green-500 cursor-default"
+                                            : "bg-[var(--color-blue)] hover:opacity-90"
+                                         }`}
+                        >
+                            {isSubmitted ? "Submitted" : "Confirm & Pay"}
+                        </Button>
                     </fieldset>
                 </form>
             </div>

@@ -6,6 +6,8 @@ export type CommonFieldsProps = {
 };
 
 const CommonFields = ({ register }: CommonFieldsProps) => {
+
+
     return (
         <>
             <div className="form-field">

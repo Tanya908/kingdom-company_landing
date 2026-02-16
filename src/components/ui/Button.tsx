@@ -10,6 +10,7 @@ type ButtonProps = {
     className?: string;
     showIcon?: boolean;
     type?: "button" | "submit"
+    disabled?: boolean;
 };
 
 export default function Button({
