@@ -1,13 +1,52 @@
 import Close from "@/assets/icons/Close.svg?react";
 import AcceptIcon from "@/assets/icons/AcceptIcon.svg";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Button from "./Button.tsx";
+import CommonFields from "./CommonFields.tsx";
+import {useForm} from "react-hook-form";
+import type {FormValues} from "../../types/form.ts";
+import ErrorIcon from "@/assets/icons/ErrorIcon.svg";
 
 type PopUpProps = {
     onClose: () => void;
 };
 
 const PopUp = ({ onClose }: PopUpProps) => {
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isValid }
+    } = useForm<FormValues>({
+        mode: "onChange",
+        reValidateMode: "onChange",
+        defaultValues: {
+            privacyAccepted: false
+        }
+    });
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState(false);
+
+    const onSubmit = async (data: FormValues) => {
+        try {
+            setLoading(true);
+            setError(null);
+
+            console.log(data);
+
+            await new Promise(res => setTimeout(res, 1000));
+
+            setSuccess(true);
+            setTimeout(() => {onClose();}, 1500);
+
+        } catch {
+            setError("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -25,7 +64,7 @@ const PopUp = ({ onClose }: PopUpProps) => {
 
             <div className="absolute inset-0 bg-[var(--color-black)]/50 backdrop-blur-sm" onClick={onClose}/>
 
-            <div className="relative max-w-[400px] md:max-w-[900px] lg:max-w-[700px] overflow-y-auto rounded-2xl
+            <div className="relative max-w-[400px] md:max-w-[900px] lg:max-w-[700px] max-h-[90vh] overflow-y-auto rounded-2xl
                             bg-[var(--color-white)] mx-auto px-2 md:px-10 py-6"
             >
 
@@ -43,44 +82,9 @@ const PopUp = ({ onClose }: PopUpProps) => {
             <h3 className="text-h3 text-[var(--color-black)] text-center mt-6">Your Support Makes It Possible</h3>
             <p className="text-p2 text-center mt-4">Your partnership helps expand a movement of faith-filled leadership.</p>
 
-            <form className="mt-10">
-                {/*FULL NAME*/}
-                <div className="form-field">
-                    <label htmlFor="fullName" className="form-label">Full Name</label>
-                    <input
-                        id="fullName"
-                        type="text"
-                        autoComplete="name"
-                        placeholder="Enter your first and last name."
-                        className="form-input"
-                        required
-                    />
-                </div>
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
 
-                {/*EMAIL ADDRESS*/}
-                <div className="form-field">
-                    <label htmlFor="email" className="form-label">Email Address</label>
-                    <input
-                        id="email"
-                        type="email"
-                        autoComplete="email"
-                        placeholder="We’ll contact you here."
-                        className="form-input"
-                        required
-                    />
-                </div>
-
-                {/*PHONE NUMBER*/}
-                <div className="form-field">
-                    <label htmlFor="phone" className="form-label">Phone Number (optional)</label>
-                    <input
-                        id="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        placeholder="Include your number if you'd prefer a call."
-                        className="form-input"
-                    />
-                </div>
+                <CommonFields register={register} errors={errors}/>
 
                 {/*WEBSITE OR SOCIAL MEDIA*/}
                 <div className="form-field">
@@ -90,6 +94,7 @@ const PopUp = ({ onClose }: PopUpProps) => {
                         type="text"
                         placeholder="Share a link where we can learn more."
                         className="form-input"
+                        {...register("website")}
                     />
                 </div>
 
@@ -99,7 +104,7 @@ const PopUp = ({ onClose }: PopUpProps) => {
                         <input
                             type="checkbox"
                             className="peer sr-only"
-                            required
+                            {...register("privacyAccepted", { required: true })}
                         />
                         <div
                             className="w-4 h-4 form-checkbox"
@@ -110,10 +115,35 @@ const PopUp = ({ onClose }: PopUpProps) => {
                             I consent to the collection and use of my information for partnership-related communication in accordance with Canadian privacy laws.
                         </span>
                     </label>
+                    {errors.privacyAccepted && (
+                        <p className="error-message mb-4">
+                            <img src={ErrorIcon} alt="" aria-hidden/>
+                            <span>You must accept the privacy policy</span>
+                        </p>
+                    )}
                 </div>
 
                 {/*SUBMIT BUTTON*/}
-                <Button type="submit" className="w-full">Confirm & Pay</Button>
+                <Button type="submit"
+                        disabled={!isValid || loading}
+                        className={`w-full transition-all duration-300
+                                            `}
+                >
+                    Confirm & Pay
+                </Button>
+
+                {error && (
+                    <p className="error-message">
+                        <img src={ErrorIcon} alt="" aria-hidden/>
+                        <span> {error}</span>
+                    </p>
+                )}
+
+                {success && (
+                    <p className="text-p2 text-[var(--color-white)] bg-[var(--color-dark-gray)] flex items-center justify-start gap-3 py-2 px-4 rounded-3xl mt-4">
+                        Thank you! Your request has been received.
+                    </p>
+                )}
             </form>
             </div>
         </section>

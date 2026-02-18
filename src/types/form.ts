@@ -6,4 +6,5 @@ export type FormValues = {
     business?: "yes" | "no";
     businessSize?: number;
     privacyAccepted: boolean;
+    website?: string;
 };

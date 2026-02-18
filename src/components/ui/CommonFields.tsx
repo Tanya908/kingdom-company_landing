@@ -40,7 +40,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                 {errors.fullName && (
                     <p className="error-message">
                         <img src={ErrorIcon} alt="" aria-hidden/>
-                        <span>{errors.fullName.message}</span>
+                        <span>String{errors.fullName.message}</span>
                     </p>
                 )}
             </div>
@@ -65,7 +65,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                 {errors.email && (
                     <p className="error-message">
                         <img src={ErrorIcon} alt="" aria-hidden/>
-                        <span>{errors.email.message}</span>
+                        <span>String{errors.email.message}</span>
                     </p>
                 )}
             </div>
@@ -95,7 +95,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                 {errors.phone && (
                     <p className="error-message">
                         <img src={ErrorIcon} alt="" aria-hidden/>
-                        <span>{errors.phone.message}</span>
+                        <span>String{errors.phone.message}</span>
                     </p>
                 )}
             </div>
