@@ -230,16 +230,17 @@
 
 @utility button-primary {
     @apply py-4 px-8 bg-[var(--color-blue)] text-p1 text-[var(--color-white)] hover:bg-[var(--color-black)] active:bg-[var(--color-black)] border-none
+           disabled:bg-[var(--color-gray)] disabled:cursor-not-allowed
 }
 
 @utility button-primaryOutlined {
     @apply py-4 px-8 border border-[var(--color-blue)] text-p1 text-[var(--color-blue)] bg-transparent hover:border-[var(--color-black)] hover:text-[var(--color-black)]
-           active:border-[var(--color-black)] active:text-[var(--color-black)]
+           active:border-[var(--color-black)] active:text-[var(--color-black)] disabled:border-[var(--color-gray)] disabled:cursor-not-allowed disabled:text-[var(--color-gray)]
 }
 
 @utility button-secondary {
     @apply px-5 py-3 text-p2 bg-transparent border border-[var(--color-blue)] text-[var(--color-blue)] hover:border-[var(--color-black)] hover:text-[var(--color-black)]
-           active:border-[var(--color-black)] active:text-[var(--color-black)]
+           active:border-[var(--color-black)] active:text-[var(--color-black)] disabled:border-[var(--color-gray)] disabled:cursor-not-allowed disabled:text-[var(--color-gray)]
 }
 
 @utility footer-hover-primary {
@@ -302,4 +303,8 @@
 
 @utility form-checkbox {
     @apply border border-[var(--color-black)] rounded flex items-center justify-center [&>img]:opacity-0 peer-checked:[&>img]:opacity-100 aspect-square
+}
+
+@utility error-message {
+    @apply text-p2 text-[var(--color-white)] bg-[var(--color-dark-gray)] flex items-center justify-start gap-3 py-2 px-4 rounded-3xl mt-4
 }

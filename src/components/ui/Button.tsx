@@ -20,7 +20,8 @@ export default function Button({
                                    onClick,
                                    className = "",
                                    showIcon = true,
-                                   type = "button"
+                                   type = "button",
+                                   disabled = false,
                                }: ButtonProps) {
 
     const variantClass = {
@@ -49,7 +50,7 @@ export default function Button({
     }
 
     return (
-        <button onClick={onClick}  className={classes}>
+        <button onClick={onClick}  className={classes} disabled={disabled}>
             {content}
         </button>
     );
