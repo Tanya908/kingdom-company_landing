@@ -274,7 +274,8 @@
 
 /* FORM */
 @utility form-input {
-    @apply bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl focus:outline-none focus:ring-0;
+    @apply bg-[var(--color-light-blue)] py-4 px-6 rounded-3xl text-p2 focus:outline-none focus:ring-0
+           text-[var(--color-dark-gray)] placeholder:text-[var(--color-gray)] transition-all duration-200 ease-in-out;
 }
 
 @utility form-radio {

@@ -5,6 +5,7 @@ import CommonFields from "../ui/CommonFields.tsx";
 import type {FormValues} from "../../types/form.ts";
 import Button from "../ui/Button.tsx";
 import ErrorIcon from "@/assets/icons/ErrorIcon.svg";
+import {usePartnerForm} from "../../hooks/usePartnerForm.ts";
 
 type BusinessSize = {
     id: number
@@ -31,9 +32,7 @@ const LetsConnect = () => {
     const {register,watch,setValue,handleSubmit,reset,formState: { errors, isValid }} = useForm<FormValues>({mode: "onChange",reValidateMode: "onChange"});
     const hasBusiness = watch("business");
     const [memberType, setMemberType] = useState<"new" | "existing">("new");
-    const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
+    const { submit, loading, error, success, setSuccess } = usePartnerForm();
 
     useEffect(() => {
         if (hasBusiness === "no") {
@@ -52,37 +51,15 @@ const LetsConnect = () => {
     }, [memberType, reset, setValue]);
 
     const onSubmit = async (data: FormValues) => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-
         const payload = { ...data, memberType };
 
-        try {
-            const res = await fetch("http://localhost:5000/api/partners", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
-            });
+        const ok = await submit(payload);
 
-            if (!res.ok) {
-                const message = await res.text();
-                setError(message || "Server error");
-                setLoading(false);
-                return;
-            }
-
-            setSuccess(true);
+        if (ok) {
             reset();
             setTimeout(() => setSuccess(false), 4000);
-        } catch (err) {
-            console.error(err);
-            setError("We couldn’t send your request. Please try again.");
-        } finally {
-            setLoading(false);
         }
     };
-
 
     return (
         <section id="connect" className="bg-[var(--color-light-blue)] section-y section-x">
@@ -148,7 +125,7 @@ const LetsConnect = () => {
                                 {errors.pastorName && (
                                     <p className="error-message">
                                         <img src={ErrorIcon} alt="" aria-hidden/>
-                                        <span>{errors.pastorName.message}</span>
+                                        <span>{errors.pastorName?.message}</span>
                                     </p>
                                 )}
                             </div>
@@ -243,8 +220,7 @@ const LetsConnect = () => {
                             {/*SUBMIT BUTTON*/}
                             <Button type="submit"
                                     disabled={!isValid || loading}
-                                    className={`w-full transition-all duration-300
-                                            `}
+                                    className="w-full transition-all duration-300"
                             >
                                  Confirm & Pay
                             </Button>

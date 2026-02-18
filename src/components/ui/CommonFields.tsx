@@ -32,7 +32,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                         required: "Full name is required",
                         pattern: {
                             value: /^[A-Za-z' -]+$/,
-                            message: "Name cannot contain numbers"
+                            message: "Name cannot contain numbers or symbols"
                         }
                     })}
                 />
@@ -40,7 +40,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                 {errors.fullName && (
                     <p className="error-message">
                         <img src={ErrorIcon} alt="" aria-hidden/>
-                        <span>String{errors.fullName.message}</span>
+                        <span>{errors.fullName?.message}</span>
                     </p>
                 )}
             </div>
@@ -65,7 +65,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                 {errors.email && (
                     <p className="error-message">
                         <img src={ErrorIcon} alt="" aria-hidden/>
-                        <span>String{errors.email.message}</span>
+                        <span>{errors.email?.message}</span>
                     </p>
                 )}
             </div>
@@ -95,7 +95,7 @@ const CommonFields = ({ register, errors }: CommonFieldsProps) => {
                 {errors.phone && (
                     <p className="error-message">
                         <img src={ErrorIcon} alt="" aria-hidden/>
-                        <span>String{errors.phone.message}</span>
+                        <span>{errors.phone?.message}</span>
                     </p>
                 )}
             </div>
