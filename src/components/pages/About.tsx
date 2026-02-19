@@ -8,17 +8,17 @@ const text = `Kingdom & Company is a high-impact, two-day conference for entrepr
 
 const About = () => {
 
-    const ref = useRef<HTMLHeadingElement>(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start 30%", "end 40%"],
+        offset: ["start 50%", "end 50%"],
     });
 
     const words = text.split(" ");
 
     return (
-        <section id="about" className="section-x section-y">
+        <section id="about" className="section-x section-y ">
             <div className="flex flex-col md:flex-row md:justify-between md:gap-10 pt-10">
 
                 <div className="flex justify-start items-start gap-2 mb-8 md:mb-0 md:w-[30%] shrink-0">
@@ -28,8 +28,8 @@ const About = () => {
                     </p>
                 </div>
 
-                <div className="flex-1">
-                    <h2 ref={ref} className="text-h2 w-full">
+                <div ref={ref} className="flex-1 relative">
+                    <h2  className="text-h2 w-full ">
                         {words.map((word, i) => (
                             <AnimatedWord
                                 key={i}
@@ -50,7 +50,6 @@ const About = () => {
                 </div>
             </div>
         </section>
-
     )
 }
 export default About

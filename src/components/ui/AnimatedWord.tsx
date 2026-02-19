@@ -18,8 +18,8 @@ const AnimatedWord = ({ word, index, total, progress }: AnimatedWordProps) => {
     );
 
     return (
-        <motion.span style={{ color }} className="inline-block mr-2">
-            {word}
+        <motion.span style={{ color }}>
+            {word}{" "}
         </motion.span>
     );
 };

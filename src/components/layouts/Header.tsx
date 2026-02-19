@@ -61,7 +61,11 @@ const Header = () => {
 
                         <div className="h-px w-full bg-[var(--color-gray)] mb-8"></div>
 
-                        <Button href="#payment" variant="secondary" className="flex md:hidden justify-center items-center">
+                        <Button
+                            href="#payment"
+                            variant="secondary"
+                            onClick={() => setIsOpen(false)}
+                            className="flex md:hidden justify-center items-center">
                             Register Now
                         </Button>
                     </motion.div>
