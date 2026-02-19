@@ -1,5 +1,5 @@
-import SpeakerDaniel from "@/assets/SpeakerDaniel.jpg"
-import SpeakerGalen from "@/assets/SpeakerGalen.jpg"
+import SpeakerDaniel from "@/assets/SpeakerDaniel.webp"
+import SpeakerGalen from "@/assets/SpeakerGalen.webp"
 import type {Speaker} from "../types/speaker.ts";
 
 export const Speakers = {

@@ -1,4 +1,4 @@
-import ForPartnersImg from "@/assets/ForPartners.jpg"
+import ForPartnersImg from "@/assets/ForPartners.webp"
 import {useState} from "react";
 import PopUp from "../ui/PopUp.tsx";
 import Button from "../ui/Button.tsx";

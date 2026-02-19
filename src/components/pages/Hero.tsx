@@ -1,4 +1,4 @@
-import HeroImg from "@/assets/Hero.jpg"
+import HeroImg from "@/assets/Hero.webp"
 import ScrollDown from "@/assets/icons/ScrollDown.svg"
 import Button from "../ui/Button.tsx";
 
